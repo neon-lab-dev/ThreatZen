@@ -43,8 +43,8 @@ export function Clients() {
           <span className="text-sm font-mono font-semibold tracking-widest uppercase text-[var(--brand)] border-b border-[var(--brand)]/30 pb-1">
             Client Work
           </span>
-          <h2 className="mt-6 text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight">
-            Trusted by Industry Leaders
+          <h2 className="mt-6 text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight capitalize">
+            Trusted by <span className="text-[var(--brand)]">Industry Leaders</span>
           </h2>
           <p className="mt-4 text-lg text-muted-foreground">
             Real results for real businesses. Here's what we've built together.
@@ -55,14 +55,12 @@ export function Clients() {
         <div className="space-y-20">
           {clients.map((client, idx) => (
             <div
-              key={client.name}
+              key={idx}
               className="border-b border-border/60 pb-20 last:border-0 last:pb-0"
             >
               {/* Client Name & Number */}
               <div className="flex items-baseline gap-3 mb-6">
-                <span className="text-5xl font-black text-[var(--brand)]">
-                  {(idx + 1).toString().padStart(2, "0")}
-                </span>
+                
                 <h3 className="text-3xl sm:text-4xl font-bold tracking-tight">
                   {client.name}
                 </h3>
@@ -136,13 +134,13 @@ export function Clients() {
                       d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"
                     />
                   </svg>
-                  <span className="font-semibold">Key Results:</span>
+                  <span className="font-semibold">Key <span className="text-[var(--brand)]">Results</span>:</span>
                 </div>
                 <div className="flex flex-wrap gap-3">
                   {client.results.split(" | ").map((result) => (
                     <span
                       key={result}
-                      className="text-sm font-medium text-[var(--brand)]"
+                      className="text-sm font-medium"
                     >
                       {result}
                     </span>

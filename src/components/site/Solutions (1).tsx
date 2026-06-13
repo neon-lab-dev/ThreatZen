@@ -19,11 +19,10 @@ export function Solutions() {
         <div className="flex flex-wrap items-end justify-between gap-6">
           <div className="max-w-xl">
             <p className="text-sm font-semibold tracking-widest uppercase text-[var(--brand)]">Solutions</p>
-            <h2 className="mt-3 text-3xl sm:text-4xl lg:text-5xl font-bold">Enterprise security, end to end</h2>
+            <h2 className="mt-3 text-3xl sm:text-4xl lg:text-5xl font-bold">Cyber Resilience, Built for <span className="text-[var(--brand)]">Business</span></h2>
           </div>
           <p className="text-muted-foreground max-w-md">
-            Tailored security programs that align with your business goals,
-            regulatory environment and threat landscape.
+            Protecting your business through intelligent security, risk advisory, and compliance expertise.
           </p>
         </div>
 

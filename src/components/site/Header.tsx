@@ -65,7 +65,7 @@ export function Header() {
               <Link
                 key={n.to}
                 to={n.to}
-                className={`px-3 py-2 text-sm font-medium transition-colors rounded-md ${getTextColor()} hover:text-foreground`}
+                className={`px-3 py-2 text-sm font-medium transition-colors rounded-md ${getTextColor()} hover:underline`}
               >
                 {n.label}
               </Link>

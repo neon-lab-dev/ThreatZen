@@ -11,6 +11,16 @@ import signellent from "../../assets/partners/Signellent.webp";
 import sophos from "../../assets/partners/Sophos.png";
 import iFlow from "../../assets/partners/iFlow.webp";
 import miniOrange from "../../assets/partners/miniOrange.webp";
+import crowdstrike from "../../assets/partners/crowdstrike.svg";
+import dataResolve from "../../assets/partners/data-resolve.webp";
+import gtb from "../../assets/partners/GTB.webp";
+import hexnode from "../../assets/partners/hexnode.svg";
+import hp from "../../assets/partners/HP.webp";
+import paloAlto from "../../assets/partners/palo-alto.webp";
+import scaleFusion from "../../assets/partners/scalefusion.svg";
+import scrut from "../../assets/partners/scrut.webp";
+import zscaler from "../../assets/partners/zscaler.webp";
+import gears42 from "../../assets/partners/42-gears.webp";
 
 const technologyPartners = [
   bdSoftware,
@@ -26,6 +36,16 @@ const technologyPartners = [
   sophos,
   iFlow,
   miniOrange,
+  crowdstrike,
+  dataResolve,
+  gtb,
+  hexnode,
+  hp,
+  paloAlto,
+  scaleFusion,
+  scrut,
+  zscaler,
+  gears42,
 ];
 
 export function Partners() {

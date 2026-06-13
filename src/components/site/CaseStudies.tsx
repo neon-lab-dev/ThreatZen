@@ -25,7 +25,7 @@ export function CaseStudies() {
         <div className="flex flex-wrap items-end justify-between gap-6">
           <div>
             <p className="text-sm font-semibold tracking-widest uppercase text-[var(--brand)]">Case Studies</p>
-            <h2 className="mt-3 text-3xl sm:text-4xl lg:text-5xl font-bold">Recent engagements</h2>
+            <h2 className="mt-3 text-3xl sm:text-4xl lg:text-5xl font-bold capitalize">Our Recent <span className="text-[var(--brand)]">engagements</span></h2>
           </div>
         </div>
 

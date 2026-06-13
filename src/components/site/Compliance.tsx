@@ -14,7 +14,7 @@ export function Compliance() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 grid lg:grid-cols-12 gap-12 items-start">
         <div className="lg:col-span-5 lg:sticky lg:top-28">
           <p className="text-sm font-semibold tracking-widest uppercase text-[var(--brand)]">Compliance</p>
-          <h2 className="mt-3 text-3xl sm:text-4xl lg:text-5xl font-bold">Expertise across global & Indian frameworks</h2>
+          <h2 className="mt-3 text-3xl sm:text-4xl lg:text-5xl font-bold capitalize">Expertise Across <span className="text-[var(--brand)]">global & indian</span> Frameworks</h2>
           <p className="mt-5 text-muted-foreground text-lg">
             From international standards to sector-specific Indian regulations,
             we help you achieve, evidence and maintain compliance.

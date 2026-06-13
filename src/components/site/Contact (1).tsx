@@ -9,7 +9,7 @@ export function Contact() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-12">
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
           <p className="text-sm font-semibold tracking-widest uppercase text-[var(--brand)]">Contact</p>
-          <h2 className="mt-3 text-3xl sm:text-4xl lg:text-5xl font-bold">Let's secure what matters</h2>
+          <h2 className="mt-3 text-3xl sm:text-4xl lg:text-5xl font-bold capitalize">Let's <span className="text-[var(--brand)]">secure</span> what matters</h2>
           <p className="mt-5 text-muted-foreground text-lg">
             Tell us about your security goals. A senior consultant will get
             back within one business day.
@@ -18,9 +18,8 @@ export function Contact() {
           <div className="mt-10 space-y-5">
             {[
               { icon: Mail, label: "General", value: "contact@threatzen.com" },
-              { icon: Mail, label: "Business Enquiries", value: "sales@threatzen.com" },
-              { icon: Phone, label: "Phone", value: "+91 XXXXX XXXXX" },
-              { icon: MapPin, label: "Location", value: "Patna, Bihar, India" },
+              { icon: Phone, label: "Phone", value: "+91-7479697250" },
+              { icon: MapPin, label: "Location", value: "No: 1190/1, FD 94, 4th Floor, HSR Layout, Sector 3, 22nd Cross Road, Bengaluru 560102, Karnataka." },
             ].map((c) => (
               <div key={c.label} className="flex items-start gap-4">
                 <div className="size-11 rounded-xl bg-[var(--brand)]/10 text-[var(--brand)] grid place-items-center shrink-0">

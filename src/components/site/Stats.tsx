@@ -5,7 +5,7 @@ const stats = [
   { value: 50, suffix: "+", label: "Security Assessments" },
   { value: 25, suffix: "+", label: "Compliance Engagements" },
   { value: 15, suffix: "+", label: "Industries Served" },
-  { value: 100, suffix: "%", label: "Client-Focused Approach" },
+  { value: 100, suffix: "%", label: "End-to-End Support" },
 ];
 
 function Counter({ value, suffix }: { value: number; suffix: string }) {
@@ -36,7 +36,7 @@ export function Stats() {
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="max-w-2xl mx-auto text-center">
           <p className="text-sm font-semibold tracking-widest uppercase text-[var(--brand)]">Why ThreatZen</p>
-          <h2 className="mt-3 text-3xl sm:text-4xl lg:text-5xl font-bold">Outcomes that speak for themselves</h2>
+          <h2 className="mt-3 text-3xl sm:text-4xl lg:text-5xl font-bold capitalize">Outcomes that <span className="text-[var(--brand)]">speak</span> for themselves</h2>
         </div>
 
         <div className="mt-14 grid grid-cols-2 lg:grid-cols-4 gap-6">

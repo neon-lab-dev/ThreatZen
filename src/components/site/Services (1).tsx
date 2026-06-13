@@ -30,7 +30,7 @@ export function Services() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="max-w-2xl">
           <p className="text-sm font-semibold tracking-widest uppercase text-[var(--brand)]">What we do</p>
-          <h2 className="mt-3 text-3xl sm:text-4xl lg:text-5xl font-bold">Our Core Services</h2>
+          <h2 className="mt-3 text-3xl sm:text-4xl lg:text-5xl font-bold">Our <span className="text-[var(--brand)]">Core Services</span></h2>
           <p className="mt-4 text-muted-foreground text-lg">
             End-to-end offensive, defensive and advisory services that secure
             every layer of your business.

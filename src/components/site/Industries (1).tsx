@@ -20,7 +20,7 @@ export function Industries() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="max-w-2xl">
           <p className="text-sm font-semibold tracking-widest uppercase text-[var(--brand)]">Industries</p>
-          <h2 className="mt-3 text-3xl sm:text-4xl lg:text-5xl font-bold">Securing regulated industries</h2>
+          <h2 className="mt-3 text-3xl sm:text-4xl lg:text-5xl font-bold capitalize">Securing regulated <span className="text-[var(--brand)]">industries</span></h2>
         </div>
 
         <div className="mt-12 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
