@@ -146,7 +146,7 @@ export function Footer() {
         </div>
 
         <div className="mt-14 pt-6 border-t border-white/10 flex flex-col md:flex-row md:items-center md:justify-between gap-4 text-xs text-white/55">
-          <p>© 2026 ThreatZen™. All Rights Reserved.</p>
+          <p>© 2026 ThreatZen - Next-Gen Cyber Resilience (A subsidiary of MITRA Tech Ventures)</p>
           <div className="flex gap-6">
             <Link to="/privacy" className="hover:text-white">
               Privacy Policy

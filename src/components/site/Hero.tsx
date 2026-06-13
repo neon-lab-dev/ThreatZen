@@ -21,9 +21,9 @@ export function Hero() {
             transition={{ duration: 0.7, ease: "easeOut" }}
             className="lg:col-span-7"
           >
-            <span className="inline-flex items-center gap-2 rounded-full glass-dark px-4 py-1.5 text-[9px] sm:text-xs font-semibold tracking-[0.18em] uppercase">
+            <span className="inline-flex items-center gap-2 rounded-full glass-dark px-4 py-1.5 text-[9px] sm:text-xs font-semibold tracking-[0.18em]">
               <span className="size-1.5 rounded-full bg-[var(--brand)] pulse-ring" />
-              ThreatZen<sup className="-top-1 relative">™</sup> ·
+              Threat<span className="text-[var(--brand)]">Z</span>en<sup className="-top-1 -ml-2 relative">™</sup>
              <span className={`font-semibold tracking-[0.18em] uppercase`}>
                 Next-Gen <span className="text-[var(--brand)]">Cyber</span> Resilience
               </span>

@@ -63,7 +63,7 @@ export function Contact() {
           </div>
           <button
             type="submit"
-            className="mt-6 w-full inline-flex items-center justify-center gap-2 rounded-full bg-[var(--navy-deep)] hover:bg-[var(--navy)] text-white px-6 py-3.5 text-sm font-semibold transition-colors"
+            className="mt-6 w-full inline-flex items-center justify-center gap-2 rounded-full bg-[var(--brand)] hover:bg-[var(--brand)]/90 text-white px-6 py-3.5 text-sm cursor-pointer font-semibold transition-colors"
           >
             {sent ? <><ShieldCheck className="size-4 text-[var(--brand)]" /> Request received</> : <>Request Consultation <Send className="size-4" /></>}
           </button>

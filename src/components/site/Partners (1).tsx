@@ -1,15 +1,15 @@
-import bdSoftware from "../../assets/partners/BD-Software.png";
 import cisco from "../../assets/partners/Cisco.png";
 import fortinet from "../../assets/partners/Fortinet.png";
 import iemLabs from "../../assets/partners/IEM-Labs.png";
 import kaspersky from "../../assets/partners/Kaspersky.png";
 import netApp from "../../assets/partners/NetApp.svg";
 import netwrix from "../../assets/partners/Netwrix.webp";
-import secureView from "../../assets/partners/SecurView.png";
 import sentinelOne from "../../assets/partners/Sentinel-One.png";
-import signellent from "../../assets/partners/Signellent.webp";
+// import bdSoftware from "../../assets/partners/BD-Software.png";
+// import secureView from "../../assets/partners/SecurView.png";
+// import signellent from "../../assets/partners/Signellent.webp";
+// import iFlow from "../../assets/partners/iFlow.webp";
 import sophos from "../../assets/partners/Sophos.png";
-import iFlow from "../../assets/partners/iFlow.webp";
 import miniOrange from "../../assets/partners/miniOrange.webp";
 import crowdstrike from "../../assets/partners/crowdstrike.svg";
 import dataResolve from "../../assets/partners/data-resolve.webp";
@@ -23,18 +23,18 @@ import zscaler from "../../assets/partners/zscaler.webp";
 import gears42 from "../../assets/partners/42-gears.webp";
 
 const technologyPartners = [
-  bdSoftware,
+  // bdSoftware,
   cisco,
   fortinet,
   iemLabs,
   kaspersky,
   netApp,
   netwrix,
-  secureView,
+  // secureView,
   sentinelOne,
-  signellent,
+  // signellent,
   sophos,
-  iFlow,
+  // iFlow,
   miniOrange,
   crowdstrike,
   dataResolve,
@@ -74,7 +74,7 @@ export function Partners() {
       </div>
 
       <p className="mt-10 text-center text-sm text-muted-foreground">
-        …and many more technology partners
+        Trusted by 200+ Global & Indian partners
       </p>
 
       {/* Tools-wise partners */}
