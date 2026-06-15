@@ -79,7 +79,7 @@ export function Contact() {
               {
                 icon: Mail,
                 label: "General",
-                value: "contact@threatzen.com",
+                value: "contact@threatzen.in",
               },
               {
                 icon: Phone,

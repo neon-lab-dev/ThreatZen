@@ -347,7 +347,7 @@ const PrivacyPolicy = () => {
           <p>
             For CCPA requests, call our toll-free line:{" "}
             <strong>+91-7479697250</strong> or email{" "}
-            <strong>contact@threatzen.com</strong>.
+            <strong>contact@threatzen.in</strong>.
           </p>
 
           <h2 className="mt-10 text-2xl font-semibold">

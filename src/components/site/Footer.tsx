@@ -78,9 +78,9 @@ export function Footer() {
                   Road, Bengaluru 560102, Karnataka, India.
                 </span>
               </p>
-              <a href="mailto:contact@threatzen.com" className="flex items-center gap-2 hover:text-white">
+              <a href="mailto:contact@threatzen.in" className="flex items-center gap-2 hover:text-white">
                 <Mail className="size-4 text-[var(--brand)]" />{" "}
-                contact@threatzen.com
+                contact@threatzen.in
               </a>
               <p className="flex items-center gap-2">
                 <Phone className="size-4 text-[var(--brand)]" />
