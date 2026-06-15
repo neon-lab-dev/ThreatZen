@@ -23,9 +23,14 @@ export function Hero() {
           >
             <span className="inline-flex items-center gap-2 rounded-full glass-dark px-4 py-1.5 text-[9px] sm:text-xs font-semibold tracking-[0.18em]">
               <span className="size-1.5 rounded-full bg-[var(--brand)] pulse-ring" />
-              Threat<span className="text-[var(--brand)]">Z</span>en<sup className="-top-1 -ml-2 relative">™</sup>
-             <span className={`font-semibold tracking-[0.18em] uppercase`}>
-                Next-Gen <span className="text-[var(--brand)]">Cyber</span> Resilience
+
+              <span className="whitespace-nowrap">
+                Threat<span className="text-[var(--brand)]">Z</span>en
+                <sup className="-top-1 -ml-2 relative">™</sup>
+              </span>
+              <span className={`font-semibold tracking-[0.18em] uppercase`}>
+                Next-Gen <span className="text-[var(--brand)]">Cyber</span>{" "}
+                Resilience
               </span>
             </span>
             <h1 className="mt-6 text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.05] text-balance">
