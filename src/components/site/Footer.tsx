@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
 import { Mail, Phone, MapPin } from "lucide-react";
 import {
-  FaFacebook,
+  // FaFacebook,
+  // FaTwitter,
   FaInstagram,
-  FaTwitter,
   FaLinkedin,
 } from "react-icons/fa";
 import logo from "../../assets/threatzen-logo.png";
@@ -101,12 +101,12 @@ export function Footer() {
            
             <div className="mt-6 flex gap-3">
               {[
-                { Icon: FaFacebook, link: "https://facebook.com/yourpage" },
-                { Icon: FaInstagram, link: "https://instagram.com/yourhandle" },
-                { Icon: FaTwitter, link: "https://twitter.com/yourhandle" },
+                // { Icon: FaFacebook, link: "https://facebook.com/yourpage" },
+                { Icon: FaInstagram, link: "https://www.instagram.com/threatzen" },
+                // { Icon: FaTwitter, link: "https://twitter.com/yourhandle" },
                 {
                   Icon: FaLinkedin,
-                  link: "https://linkedin.com/company/yourcompany",
+                  link: "https://www.linkedin.com/company/threatzen",
                 },
               ].map(({ Icon, link }, i) => (
                 <a
