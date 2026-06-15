@@ -26,7 +26,7 @@ export function Hero() {
 
               <span className="whitespace-nowrap">
                 Threat<span className="text-[var(--brand)]">Z</span>en
-                <sup className="-top-1 -ml-2 relative">™</sup>
+                <sup className="-top-1 -ml-1 relative">™</sup>
               </span>
               <span className={`font-semibold tracking-[0.18em] uppercase`}>
                 Next-Gen <span className="text-[var(--brand)]">Cyber</span>{" "}
