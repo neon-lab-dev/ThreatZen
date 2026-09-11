@@ -9,6 +9,7 @@ import { Solutions } from "../components/site/Solutions (1)";
 import TermsAndConditions from "../pages/terms";
 import CaseStudy from "../pages/case-studies";
 import Industry from "../pages/industries";
+import { Services } from "../components/site/Services (1)";
 
 export const router = createBrowserRouter([
   {
@@ -23,6 +24,10 @@ export const router = createBrowserRouter([
       {
         path: "/about",
         element: <About />,
+      },
+      {
+        path: "/services",
+        element: <Services />,
       },
       {
         path: "/contact",

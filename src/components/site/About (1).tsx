@@ -4,7 +4,7 @@ import { CheckCircle2, Shield, Target, LineChart, Users, Award, TrendingUp } fro
 const stats = [
   { value: "98%", label: "Client Retention Rate", icon: Users },
   { value: "500+", label: "Vulnerabilities Remediated", icon: Shield },
-  { value: "50+", label: "Enterprise Clients", icon: Award },
+  { value: "100+", label: "Clients", icon: Award },
   { value: "99.9%", label: "Compliance Success Rate", icon: TrendingUp },
 ];
 
