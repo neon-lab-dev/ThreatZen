@@ -5,6 +5,7 @@ import logo from "../../assets/threatzen-logo.png";
 
 const nav = [
   { to: "/", label: "Home" },
+  { to: "/about", label: "About Us" },
   { to: "/services", label: "Services" },
   { to: "/solutions", label: "Solutions" },
   { to: "/industries", label: "Industries" },
@@ -73,12 +74,6 @@ export function Header() {
           </nav>
 
           <div className="hidden lg:flex items-center gap-3">
-            <Link
-              to="/contact"
-              className={`text-sm font-medium ${getTextColor()}`}
-            >
-              Get Assessment
-            </Link>
             <Link
               to="/contact"
               className="inline-flex items-center gap-2 rounded-full bg-[var(--brand)] hover:bg-[var(--brand-glow)] text-[var(--navy-deep)] px-5 py-2.5 text-sm font-semibold shadow-brand transition-all hover:-translate-y-0.5"

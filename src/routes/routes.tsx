@@ -54,7 +54,7 @@ export const router = createBrowserRouter([
         element: <TermsAndConditions />,
       },
       {
-        path: "/refund-policy",
+        path: "/privacy-policy",
         element: <PrivacyPolicy />,
       },
     ],

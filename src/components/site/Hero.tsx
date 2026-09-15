@@ -100,7 +100,7 @@ export function Hero() {
               </div>
               <div>
                 <p className="text-xs text-white/60">Threats Blocked</p>
-                <p className="text-sm font-semibold text-white">12,847 today</p>
+                <p className="text-sm font-semibold text-white">12,847</p>
               </div>
             </motion.div>
 
