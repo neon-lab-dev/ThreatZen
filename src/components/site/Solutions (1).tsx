@@ -18,8 +18,8 @@ export function Solutions() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex flex-wrap items-end justify-between gap-6">
           <div className="max-w-xl">
-            <p className="text-sm font-semibold tracking-widest uppercase text-[var(--brand)]">Solutions</p>
-            <h2 className="mt-3 text-3xl sm:text-4xl lg:text-5xl font-bold">Cyber Resilience, Built for <span className="text-[var(--brand)]">Business</span></h2>
+            <p className="text-sm font-semibold tracking-widest uppercase text-brand">Solutions</p>
+            <h2 className="mt-3 text-3xl sm:text-4xl lg:text-5xl font-bold">Cyber Resilience, Built for <span className="text-brand">Business</span></h2>
           </div>
           <p className="text-muted-foreground max-w-md">
             Protecting your business through intelligent security, risk advisory, and compliance expertise.
@@ -36,7 +36,7 @@ export function Solutions() {
               transition={{ duration: 0.45, delay: (i % 4) * 0.06 }}
               className="group rounded-2xl bg-card p-6 border border-border hover:bg-[var(--navy-deep)] hover:text-white transition-all duration-300 cursor-pointer"
             >
-              <div className="size-11 rounded-xl bg-[var(--brand)]/15 text-[var(--brand)] grid place-items-center group-hover:bg-[var(--brand)] group-hover:text-[var(--navy-deep)] transition-colors">
+              <div className="size-11 rounded-xl bg-[var(--brand)]/15 text-brand grid place-items-center group-hover:bg-[var(--brand)] group-hover:text-[var(--navy-deep)] transition-colors">
                 <s.icon className="size-5" />
               </div>
               <h3 className="mt-5 text-base font-semibold">{s.title}</h3>

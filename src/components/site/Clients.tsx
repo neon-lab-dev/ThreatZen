@@ -40,11 +40,11 @@ export function Clients() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="max-w-3xl mx-auto text-center mb-20">
-          <span className="text-sm font-mono font-semibold tracking-widest uppercase text-[var(--brand)] border-b border-[var(--brand)]/30 pb-1">
+          <span className="text-sm font-mono font-semibold tracking-widest uppercase text-brand border-b border-[var(--brand)]/30 pb-1">
             Client Work
           </span>
           <h2 className="mt-6 text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight capitalize">
-            Trusted by <span className="text-[var(--brand)]">Industry Leaders</span>
+            Trusted by <span className="text-brand">Industry Leaders</span>
           </h2>
           <p className="mt-4 text-lg text-muted-foreground">
             Real results for real businesses. Here's what we've built together.
@@ -98,7 +98,7 @@ export function Clients() {
                 <div className="bg-[var(--brand)]/5 p-6 rounded-2xl border-l-4 border-[var(--brand)]">
                   <div className="flex items-center gap-2 mb-3">
                     <svg
-                      className="w-5 h-5 text-[var(--brand)]"
+                      className="w-5 h-5 text-brand"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -110,7 +110,7 @@ export function Clients() {
                         d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
                       />
                     </svg>
-                    <span className="font-semibold text-[var(--brand)]">
+                    <span className="font-semibold text-brand">
                       Our Solution
                     </span>
                   </div>
@@ -134,7 +134,7 @@ export function Clients() {
                       d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"
                     />
                   </svg>
-                  <span className="font-semibold">Key <span className="text-[var(--brand)]">Results</span>:</span>
+                  <span className="font-semibold">Key <span className="text-brand">Results</span>:</span>
                 </div>
                 <div className="flex flex-wrap gap-3">
                   {client.results.split(" | ").map((result) => (

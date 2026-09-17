@@ -117,11 +117,11 @@ export function Services() {
     <section id="services" className="py-24 lg:py-32 bg-background">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="max-w-2xl">
-          <p className="text-sm font-semibold tracking-widest uppercase text-[var(--brand)]">
+          <p className="text-sm font-semibold tracking-widest uppercase text-brand">
             What we do
           </p>
           <h2 className="mt-3 text-3xl sm:text-4xl lg:text-5xl font-bold">
-            Our <span className="text-[var(--brand)]">Core Services</span>
+            Our <span className="text-brand">Core Services</span>
           </h2>
           <p className="mt-4 text-muted-foreground text-lg">
             End-to-end offensive, defensive and advisory services that secure
@@ -140,7 +140,7 @@ export function Services() {
               className="group relative rounded-2xl p-6 bg-card border border-border hover:border-[var(--brand)]/40 hover:shadow-elegant transition-all duration-300 hover:-translate-y-1"
             >
               <div className="absolute inset-x-6 -top-px h-px bg-gradient-to-r from-transparent via-[var(--brand)]/0 to-transparent group-hover:via-[var(--brand)]/70 transition-all" />
-              <div className="size-12 rounded-xl bg-[var(--brand)]/10 text-[var(--brand)] grid place-items-center group-hover:bg-[var(--brand)] group-hover:text-[var(--navy-deep)] transition-colors">
+              <div className="size-12 rounded-xl bg-[var(--brand)]/10 text-brand grid place-items-center group-hover:bg-[var(--brand)] group-hover:text-[var(--navy-deep)] transition-colors">
                 <s.icon className="size-6" />
               </div>
               <h3 className="mt-5 text-lg font-semibold leading-tight">

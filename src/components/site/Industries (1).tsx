@@ -19,8 +19,8 @@ export function Industries() {
     <section className="py-24 lg:py-32 bg-surface">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="max-w-2xl">
-          <p className="text-sm font-semibold tracking-widest uppercase text-[var(--brand)]">Industries</p>
-          <h2 className="mt-3 text-3xl sm:text-4xl lg:text-5xl font-bold capitalize">Securing regulated <span className="text-[var(--brand)]">industries</span></h2>
+          <p className="text-sm font-semibold tracking-widest uppercase text-brand">Industries</p>
+          <h2 className="mt-3 text-3xl sm:text-4xl lg:text-5xl font-bold capitalize">Securing regulated <span className="text-brand">industries</span></h2>
         </div>
 
         <div className="mt-12 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
@@ -33,7 +33,7 @@ export function Industries() {
               transition={{ delay: (idx % 5) * 0.05 }}
               className="group rounded-2xl bg-card border border-border p-5 flex flex-col items-center text-center hover:border-[var(--brand)]/40 hover:shadow-elegant transition-all"
             >
-              <div className="size-12 rounded-full bg-[var(--brand)]/10 text-[var(--brand)] grid place-items-center group-hover:scale-110 transition-transform">
+              <div className="size-12 rounded-full bg-[var(--brand)]/10 text-brand grid place-items-center group-hover:scale-110 transition-transform">
                 <i.icon className="size-6" />
               </div>
               <p className="mt-3 text-sm font-semibold">{i.label}</p>

@@ -24,8 +24,8 @@ export function CaseStudies() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex flex-wrap items-end justify-between gap-6">
           <div>
-            <p className="text-sm font-semibold tracking-widest uppercase text-[var(--brand)]">Case Studies</p>
-            <h2 className="mt-3 text-3xl sm:text-4xl lg:text-5xl font-bold capitalize">Our Recent <span className="text-[var(--brand)]">engagements</span></h2>
+            <p className="text-sm font-semibold tracking-widest uppercase text-brand">Case Studies</p>
+            <h2 className="mt-3 text-3xl sm:text-4xl lg:text-5xl font-bold capitalize">Our Recent <span className="text-brand">engagements</span></h2>
           </div>
         </div>
 
@@ -46,7 +46,7 @@ export function CaseStudies() {
               <div className="p-6">
                 <h3 className="text-lg font-semibold leading-tight">{c.title}</h3>
                 <p className="mt-2 text-sm text-muted-foreground">{c.desc}</p>
-                {/* <a href="#" className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-[var(--brand)] group-hover:gap-2 transition-all">
+                {/* <a href="#" className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-brand group-hover:gap-2 transition-all">
                   Read case study <ArrowUpRight className="size-4" />
                 </a> */}
               </div>

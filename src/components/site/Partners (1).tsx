@@ -54,7 +54,7 @@ export function Partners() {
     <section className="py-20 bg-background border-y border-border">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-2xl mx-auto">
-          <p className="text-sm font-semibold tracking-widest uppercase text-[var(--brand)]">
+          <p className="text-sm font-semibold tracking-widest uppercase text-brand">
             Trusted by
           </p>
           <h2 className="mt-3 text-2xl sm:text-3xl lg:text-4xl font-bold">
@@ -80,7 +80,7 @@ export function Partners() {
       {/* Tools-wise partners */}
       {/* <div className="mt-20 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-2xl mx-auto">
-          <p className="text-sm font-semibold tracking-widest uppercase text-[var(--brand)]">By Capability</p>
+          <p className="text-sm font-semibold tracking-widest uppercase text-brand">By Capability</p>
           <h2 className="mt-3 text-2xl sm:text-3xl lg:text-4xl font-bold">Tool-wise Technology Partners</h2>
           <p className="mt-4 text-muted-foreground">
             Best-of-breed partners across EDR, XDR, DLP, MDM, SIEM, SOC, firewall and data infrastructure.
@@ -98,7 +98,7 @@ export function Partners() {
               className="group rounded-2xl p-6 bg-card border border-border hover:border-[var(--brand)]/40 hover:shadow-elegant transition-all"
             >
               <div className="flex items-center gap-3">
-                <div className="size-11 rounded-xl bg-[var(--brand)]/10 text-[var(--brand)] grid place-items-center group-hover:bg-[var(--brand)] group-hover:text-[var(--navy-deep)] transition-colors">
+                <div className="size-11 rounded-xl bg-[var(--brand)]/10 text-brand grid place-items-center group-hover:bg-[var(--brand)] group-hover:text-[var(--navy-deep)] transition-colors">
                   <cat.icon className="size-5" />
                 </div>
                 <h3 className="text-lg font-semibold">{cat.title}</h3>

@@ -25,11 +25,11 @@ export function Hero() {
               <span className="size-1.5 rounded-full bg-[var(--brand)] pulse-ring" />
 
               <span className="whitespace-nowrap">
-                Threat<span className="text-[var(--brand)]">Z</span>en
+                Threat<span className="text-brand">Z</span>en
                 <sup className="-top-1 -ml-1 relative">™</sup>
               </span>
               <span className={`font-semibold tracking-[0.18em] uppercase`}>
-                Next-Gen <span className="text-[var(--brand)]">Cyber</span>{" "}
+                Next-Gen <span className="text-brand">Cyber</span>{" "}
                 Resilience
               </span>
             </span>
@@ -95,7 +95,7 @@ export function Hero() {
               transition={{ delay: 0.6 }}
               className="absolute -left-4 top-10 glass-dark rounded-2xl p-3 pr-4 flex items-center gap-3 shadow-elegant"
             >
-              <div className="size-9 rounded-xl bg-[var(--brand)]/20 grid place-items-center text-[var(--brand)]">
+              <div className="size-9 rounded-xl bg-[var(--brand)]/20 grid place-items-center text-brand">
                 <ShieldCheck className="size-5" />
               </div>
               <div>
@@ -110,7 +110,7 @@ export function Hero() {
               transition={{ delay: 0.8 }}
               className="absolute -right-4 bottom-10 glass-dark rounded-2xl p-3 pr-4 flex items-center gap-3 shadow-elegant"
             >
-              <div className="size-9 rounded-xl bg-[var(--brand)]/20 grid place-items-center text-[var(--brand)]">
+              <div className="size-9 rounded-xl bg-[var(--brand)]/20 grid place-items-center text-brand">
                 <Activity className="size-5" />
               </div>
               <div>
@@ -125,7 +125,7 @@ export function Hero() {
               transition={{ delay: 1 }}
               className="absolute right-8 -top-5 glass-dark rounded-xl p-2.5 flex items-center gap-2"
             >
-              <Lock className="size-4 text-[var(--brand)]" />
+              <Lock className="size-4 text-brand" />
               <span className="text-xs font-medium text-white">Compliant</span>
             </motion.div>
           </motion.div>

@@ -57,13 +57,13 @@ export function Contact() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <p className="text-sm font-semibold tracking-widest uppercase text-[var(--brand)]">
+          <p className="text-sm font-semibold tracking-widest uppercase text-brand">
             Contact
           </p>
 
           <h2 className="mt-3 text-3xl sm:text-4xl lg:text-5xl font-bold capitalize">
             Let's{" "}
-            <span className="text-[var(--brand)]">
+            <span className="text-brand">
               secure
             </span>{" "}
             what matters
@@ -97,7 +97,7 @@ export function Contact() {
                 key={c.label}
                 className="flex items-start gap-4"
               >
-                <div className="size-11 rounded-xl bg-[var(--brand)]/10 text-[var(--brand)] grid place-items-center shrink-0">
+                <div className="size-11 rounded-xl bg-[var(--brand)]/10 text-brand grid place-items-center shrink-0">
                   <c.icon className="size-5" />
                 </div>
 
@@ -247,7 +247,7 @@ function Field({
       >
         {label}
         {required && (
-          <span className="text-[var(--brand)]">
+          <span className="text-brand">
             {" "}
             *
           </span>

@@ -46,10 +46,10 @@ export function About() {
           viewport={{ once: true }}
           className="text-center max-w-3xl mx-auto mb-16"
         >
-          <p className="text-sm font-semibold tracking-widest uppercase text-[var(--brand)]">Trusted Security Partner</p>
+          <p className="text-sm font-semibold tracking-widest uppercase text-brand">Trusted Security Partner</p>
           <h2 className="mt-3 text-3xl sm:text-4xl lg:text-5xl font-bold">
             Beyond Compliance, Building{" "}
-            <span className="text-[var(--brand)]">
+            <span className="text-brand">
                Cyber Resilience
             </span>
           </h2>
@@ -70,7 +70,7 @@ export function About() {
         >
           {stats.map((stat, idx) => (
             <div key={idx} className="text-center p-6 rounded-2xl bg-card border shadow-sm">
-              <stat.icon className="size-8 text-[var(--brand)] mx-auto mb-3" />
+              <stat.icon className="size-8 text-brand mx-auto mb-3" />
               <p className="text-3xl lg:text-4xl font-bold">{stat.value}</p>
               <p className="text-sm text-muted-foreground mt-1">{stat.label}</p>
             </div>
@@ -95,7 +95,7 @@ export function About() {
             <div className="space-y-4 mb-8">
               {differentiators.map((diff) => (
                 <div key={diff.title} className="flex gap-4 p-4 rounded-xl bg-muted/30 border">
-                  <diff.icon className="size-6 text-[var(--brand)] shrink-0 mt-0.5" />
+                  <diff.icon className="size-6 text-brand shrink-0 mt-0.5" />
                   <div>
                     <h4 className="font-semibold">{diff.title}</h4>
                     <p className="text-sm text-muted-foreground">{diff.description}</p>
@@ -115,7 +115,7 @@ export function About() {
                 "Incident Response & Forensics",
               ].map((item) => (
                 <li key={item} className="flex items-center gap-3">
-                  <CheckCircle2 className="size-5 text-[var(--brand)] shrink-0" />
+                  <CheckCircle2 className="size-5 text-brand shrink-0" />
                   <span>{item}</span>
                 </li>
               ))}
@@ -133,7 +133,7 @@ export function About() {
             <div className="rounded-2xl bg-gradient-to-br from-[var(--brand)]/10 to-[var(--brand)]/5 border-2 border-[var(--brand)]/20 p-8 relative overflow-hidden">
               <div className="absolute top-0 right-0 w-40 h-40 bg-[var(--brand)]/20 rounded-full blur-3xl" />
               <div className="relative">
-                <Shield className="size-12 text-[var(--brand)] mb-4" />
+                <Shield className="size-12 text-brand mb-4" />
                 <h3 className="text-xl font-bold mb-2">Certified Excellence</h3>
                 <p className="text-muted-foreground text-sm mb-6">
                   Our team holds industry's most respected certifications, ensuring 
@@ -173,7 +173,7 @@ export function About() {
             <div className="rounded-2xl bg-[var(--brand)] text-white p-6 text-center">
               <p className="font-semibold mb-2">Ready to strengthen your security posture?</p>
               <p className="text-sm opacity-90 mb-4">Get a complimentary security consultation</p>
-              <a href="/contact" className="px-6 py-2 bg-white text-[var(--brand)] rounded-lg font-medium text-sm hover:bg-gray-100 transition-colors">
+              <a href="/contact" className="px-6 py-2 bg-white text-brand rounded-lg font-medium text-sm hover:bg-gray-100 transition-colors">
                 Talk to an Expert →
               </a>
             </div>

@@ -63,7 +63,7 @@ export function Footer() {
             <p
               className={`text-[10px] font-semibold tracking-[0.18em] uppercase`}
             >
-              Next-Gen <span className="text-[var(--brand)]">Cyber</span>{" "}
+              Next-Gen <span className="text-brand">Cyber</span>{" "}
               Resilience
             </p>
             <p className="mt-4 text-sm leading-relaxed max-w-sm">
@@ -72,18 +72,18 @@ export function Footer() {
             </p>
             <div className="mt-6 space-y-3 text-sm">
               <p className="flex items-start gap-2">
-                <MapPin className="size-4 text-[var(--brand)] mt-0.5 shrink-0" />
+                <MapPin className="size-4 text-brand mt-0.5 shrink-0" />
                 <span>
                   No: 1190/1, FD 94, 4th Floor, HSR Layout, Sector 3, 22nd Cross
                   Road, Bengaluru 560102, Karnataka, India.
                 </span>
               </p>
               <a href="mailto:contact@threatzen.in" className="flex items-center gap-2 hover:text-white">
-                <Mail className="size-4 text-[var(--brand)]" />{" "}
+                <Mail className="size-4 text-brand" />{" "}
                 contact@threatzen.in
               </a>
               <p className="flex items-center gap-2">
-                <Phone className="size-4 text-[var(--brand)]" />
+                <Phone className="size-4 text-brand" />
                 <a href="tel:+917479697250" className="hover:text-white">
                   +91-7479697250
                 </a>
@@ -92,7 +92,7 @@ export function Footer() {
                   href="https://wa.me/917479697250"
                   target="_blank"
                   rel="noreferrer"
-                  className="text-[var(--brand)] hover:underline"
+                  className="text-brand hover:underline"
                 >
                   WhatsApp
                 </a>
@@ -133,7 +133,7 @@ export function Footer() {
                     <li key={l.label}>
                       <Link
                         to={l.to}
-                        className="text-sm text-white/65 hover:text-[var(--brand)] transition-colors"
+                        className="text-sm text-white/65 hover:text-brand transition-colors"
                       >
                         {l.label}
                       </Link>
@@ -146,7 +146,7 @@ export function Footer() {
         </div>
 
         <div className="mt-14 pt-6 border-t border-white/10 flex flex-col md:flex-row md:items-center md:justify-between gap-4 text-xs text-white/55">
-          <p>©️ 2026 ThreatZen. Next-Gen Cyber Resilience. (A wholly owned subsidiary of <span className="text-[var(--brand)]">MitraTech Ventures.</span>)</p>
+          <p>©️ 2026 ThreatZen. Next-Gen Cyber Resilience. (A wholly owned subsidiary of <span className="text-brand">MitraTech Ventures.</span>)</p>
           <div className="flex gap-6">
             <Link to="/privacy-policy" className="hover:text-white">
               Privacy Policy

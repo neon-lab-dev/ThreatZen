@@ -9,7 +9,7 @@ const nav = [
   { to: "/services", label: "Services" },
   { to: "/solutions", label: "Solutions" },
   { to: "/industries", label: "Industries" },
-  { to: "/partners", label: "Partners" },
+  { to: "/blogs", label: "Blogs" },
   // { to: "/about", label: "About" },
 ];
 
@@ -56,7 +56,7 @@ export function Header() {
                 ThreatZen<sup className="text-[0.55em] ml-0.5 font-semibold">™</sup>
               </span>
               <span className={`text-[10px] font-semibold tracking-[0.18em] uppercase ${getTextColor()}`}>
-                Next-Gen <span className="text-[var(--brand)]">Cyber</span> Resilience
+                Next-Gen <span className="text-brand">Cyber</span> Resilience
               </span>
             </div>
           </Link>

@@ -10,6 +10,8 @@ import TermsAndConditions from "../pages/terms";
 import CaseStudy from "../pages/case-studies";
 import Industry from "../pages/industries";
 import { Services } from "../components/site/Services (1)";
+import Blogs from "../pages/blogs";
+import BlogDetails from "../pages/BlogDetails";
 
 export const router = createBrowserRouter([
   {
@@ -56,6 +58,14 @@ export const router = createBrowserRouter([
       {
         path: "/privacy-policy",
         element: <PrivacyPolicy />,
+      },
+      {
+        path: "/blogs",
+        element: <Blogs />,
+      },
+      {
+        path: "/blog/:id",
+        element: <BlogDetails />,
       },
     ],
   },

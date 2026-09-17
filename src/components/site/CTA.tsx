@@ -14,7 +14,7 @@ export function CTA() {
           />
           <div className="relative max-w-2xl mx-auto">
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold capitalize">
-              Ready to <span className="text-[var(--brand)]">strengthen</span>{" "}
+              Ready to <span className="text-brand">strengthen</span>{" "}
               your security posture?
             </h2>
             <p className="mt-4 text-white/75 text-lg">

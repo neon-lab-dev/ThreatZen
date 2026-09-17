@@ -35,8 +35,8 @@ export function Stats() {
       <div aria-hidden className="absolute -top-20 left-1/2 -translate-x-1/2 w-[700px] h-[400px] rounded-full" style={{ background: "var(--gradient-glow)" }} />
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="max-w-2xl mx-auto text-center">
-          <p className="text-sm font-semibold tracking-widest uppercase text-[var(--brand)]">Why ThreatZen</p>
-          <h2 className="mt-3 text-3xl sm:text-4xl lg:text-5xl font-bold capitalize">Outcomes that <span className="text-[var(--brand)]">speak</span> for themselves</h2>
+          <p className="text-sm font-semibold tracking-widest uppercase text-brand">Why ThreatZen</p>
+          <h2 className="mt-3 text-3xl sm:text-4xl lg:text-5xl font-bold capitalize">Outcomes that <span className="text-brand">speak</span> for themselves</h2>
         </div>
 
         <div className="mt-14 grid grid-cols-2 lg:grid-cols-4 gap-6">

@@ -13,8 +13,8 @@ export function Compliance() {
     <section className="py-24 lg:py-32 bg-background relative overflow-hidden">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 grid lg:grid-cols-12 gap-12 items-start">
         <div className="lg:col-span-5 lg:sticky lg:top-28">
-          <p className="text-sm font-semibold tracking-widest uppercase text-[var(--brand)]">Compliance</p>
-          <h2 className="mt-3 text-3xl sm:text-4xl lg:text-5xl font-bold capitalize">Expertise Across <span className="text-[var(--brand)]">global & indian</span> Frameworks</h2>
+          <p className="text-sm font-semibold tracking-widest uppercase text-brand">Compliance</p>
+          <h2 className="mt-3 text-3xl sm:text-4xl lg:text-5xl font-bold capitalize">Expertise Across <span className="text-brand">global & indian</span> Frameworks</h2>
           <p className="mt-5 text-muted-foreground text-lg">
             From international standards to sector-specific Indian regulations,
             we help you achieve, evidence and maintain compliance.
@@ -34,7 +34,7 @@ export function Compliance() {
               >
                 <span className="absolute -left-[42px] top-3 size-4 rounded-full bg-[var(--brand)] ring-4 ring-[var(--brand)]/20" />
                 <div className="rounded-xl bg-card border border-border p-5 hover:border-[var(--brand)]/40 transition-colors flex items-center gap-3">
-                  <BadgeCheck className="size-5 text-[var(--brand)] shrink-0" />
+                  <BadgeCheck className="size-5 text-brand shrink-0" />
                   <span className="font-semibold">{f}</span>
                 </div>
               </motion.div>
