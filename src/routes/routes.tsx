@@ -12,6 +12,7 @@ import Industry from "../pages/industries";
 import { Services } from "../components/site/Services (1)";
 import Blogs from "../pages/blogs";
 import BlogDetails from "../pages/BlogDetails";
+import AddBlog from "../pages/AddBlog";
 
 export const router = createBrowserRouter([
   {
@@ -66,6 +67,10 @@ export const router = createBrowserRouter([
       {
         path: "/blog/:id",
         element: <BlogDetails />,
+      },
+      {
+        path: "/add/blog",
+        element: <AddBlog />,
       },
     ],
   },

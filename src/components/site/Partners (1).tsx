@@ -98,7 +98,7 @@ export function Partners() {
               className="group rounded-2xl p-6 bg-card border border-border hover:border-[var(--brand)]/40 hover:shadow-elegant transition-all"
             >
               <div className="flex items-center gap-3">
-                <div className="size-11 rounded-xl bg-[var(--brand)]/10 text-brand grid place-items-center group-hover:bg-[var(--brand)] group-hover:text-[var(--navy-deep)] transition-colors">
+                <div className="size-11 rounded-xl bg-[var(--brand)]/10 text-brand grid place-items-center group-hover:bg-[var(--brand)] group-hover:text-navy-deep transition-colors">
                   <cat.icon className="size-5" />
                 </div>
                 <h3 className="text-lg font-semibold">{cat.title}</h3>

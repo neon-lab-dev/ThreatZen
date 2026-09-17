@@ -39,7 +39,7 @@ const BlogCard: React.FC<BlogCardProps> = ({
           <span className="text-xs font-medium text-[var(--brand)] tracking-wide uppercase">
             {category}
           </span>
-          <h4 className="text-sm font-semibold text-foreground mt-1 leading-snug group-hover:text-[var(--navy)] transition-colors line-clamp-2">
+          <h4 className="text-sm font-semibold text-foreground mt-1 leading-snug group-hover:text-navy transition-colors line-clamp-2">
             {title}
           </h4>
           <div className="text-xs text-muted-foreground mt-2">
@@ -51,7 +51,7 @@ const BlogCard: React.FC<BlogCardProps> = ({
   }
 
   return (
-    <article className="group bg-[var(--card)] rounded-2xl border border-muted overflow-hidden hover:border-[var(--brand)]/30 hover:shadow-lg hover:shadow-[var(--navy)]/5 transition-all duration-300 flex flex-col">
+    <article className="group bg-[var(--card)] rounded-2xl border border-muted overflow-hidden hover:border-[var(--brand)]/30 hover:shadow-lg hover:shadow-navy/5 transition-all duration-300 flex flex-col">
       {/* Image */}
       <div className="aspect-[16/9] bg-[var(--surface)] relative overflow-hidden">
         <img
@@ -66,7 +66,7 @@ const BlogCard: React.FC<BlogCardProps> = ({
 
         {/* Category Badge */}
         <div className="absolute top-4 left-4">
-          <span className="px-2.5 py-1 rounded-md bg-white/90 backdrop-blur-sm text-xs font-medium text-[var(--navy)] border border-white/40 shadow-sm">
+          <span className="px-2.5 py-1 rounded-md bg-white/90 backdrop-blur-sm text-xs font-medium text-navy border border-white/40 shadow-sm">
             {category}
           </span>
         </div>
@@ -81,7 +81,7 @@ const BlogCard: React.FC<BlogCardProps> = ({
 
       {/* Content */}
       <div className="p-6 flex flex-col flex-1">
-        <h3 className="text-lg font-semibold text-foreground leading-snug mb-3 group-hover:text-[var(--navy)] transition-colors line-clamp-2">
+        <h3 className="text-lg font-semibold text-foreground leading-snug mb-3 group-hover:text-navy transition-colors line-clamp-2">
           {title}
         </h3>
 
@@ -96,7 +96,7 @@ const BlogCard: React.FC<BlogCardProps> = ({
           <a
             href={`/blog/${1}`}
             type="button"
-            className="inline-flex items-center gap-1.5 text-xs font-semibold text-[var(--navy)] group-hover:text-[var(--brand)] transition-colors duration-300"
+            className="inline-flex items-center gap-1.5 text-xs font-semibold text-navy group-hover:text-[var(--brand)] transition-colors duration-300"
           >
             Read More
             <svg

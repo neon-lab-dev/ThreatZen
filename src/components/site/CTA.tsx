@@ -23,7 +23,7 @@ export function CTA() {
             </p>
             <Link
               to="/contact"
-              className="mt-8 inline-flex items-center gap-2 rounded-full bg-[var(--brand)] hover:bg-[var(--brand-glow)] text-[var(--navy-deep)] px-7 py-4 text-sm font-semibold shadow-brand transition-all hover:-translate-y-0.5"
+              className="mt-8 inline-flex items-center gap-2 rounded-full bg-[var(--brand)] hover:bg-[var(--brand-glow)] text-navy-deep px-7 py-4 text-sm font-semibold shadow-brand transition-all hover:-translate-y-0.5"
             >
               Talk To An Expert <ArrowRight className="size-4" />
             </Link>

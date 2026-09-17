@@ -30,7 +30,7 @@ function Counter({ value, suffix }: { value: number; suffix: string }) {
 
 export function Stats() {
   return (
-    <section className="py-20 lg:py-24 bg-[var(--navy-deep)] text-white relative overflow-hidden">
+    <section className="py-20 lg:py-24 bg-navy-deep text-white relative overflow-hidden">
       <div aria-hidden className="absolute inset-0 cyber-grid opacity-25" />
       <div aria-hidden className="absolute -top-20 left-1/2 -translate-x-1/2 w-[700px] h-[400px] rounded-full" style={{ background: "var(--gradient-glow)" }} />
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">

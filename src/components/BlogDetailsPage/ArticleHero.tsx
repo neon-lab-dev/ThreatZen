@@ -18,7 +18,7 @@ const ArticleHero: React.FC = () => {
       <div className="absolute -top-32 -right-24 w-[500px] h-[500px] bg-[var(--brand)] opacity-[0.10] blur-[140px] rounded-full pointer-events-none" />
 
       {/* Soft navy glow — bottom left */}
-      <div className="absolute -bottom-32 -left-24 w-[500px] h-[500px] bg-[var(--navy)] opacity-[0.06] blur-[140px] rounded-full pointer-events-none" />
+      <div className="absolute -bottom-32 -left-24 w-[500px] h-[500px] bg-navy opacity-[0.06] blur-[140px] rounded-full pointer-events-none" />
 
       <div className="relative max-w-7xl mx-auto px-6 lg:px-8 pt-16 lg:pt-20 pb-12">
         <div>

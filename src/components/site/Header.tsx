@@ -76,7 +76,7 @@ export function Header() {
           <div className="hidden lg:flex items-center gap-3">
             <Link
               to="/contact"
-              className="inline-flex items-center gap-2 rounded-full bg-[var(--brand)] hover:bg-[var(--brand-glow)] text-[var(--navy-deep)] px-5 py-2.5 text-sm font-semibold shadow-brand transition-all hover:-translate-y-0.5"
+              className="inline-flex items-center gap-2 rounded-full bg-[var(--brand)] hover:bg-[var(--brand-glow)] text-navy-deep px-5 py-2.5 text-sm font-semibold shadow-brand transition-all hover:-translate-y-0.5"
             >
               <ShieldCheck className="size-4" />
               Book Consultation
@@ -108,7 +108,7 @@ export function Header() {
               <Link
                 to="/contact"
                 onClick={() => setOpen(false)}
-                className="mt-2 text-center rounded-full bg-[var(--brand)] text-[var(--navy-deep)] px-5 py-2.5 text-sm font-semibold"
+                className="mt-2 text-center rounded-full bg-[var(--brand)] text-navy-deep px-5 py-2.5 text-sm font-semibold"
               >
                 Book Consultation
               </Link>

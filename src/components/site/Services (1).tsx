@@ -140,7 +140,7 @@ export function Services() {
               className="group relative rounded-2xl p-6 bg-card border border-border hover:border-[var(--brand)]/40 hover:shadow-elegant transition-all duration-300 hover:-translate-y-1"
             >
               <div className="absolute inset-x-6 -top-px h-px bg-gradient-to-r from-transparent via-[var(--brand)]/0 to-transparent group-hover:via-[var(--brand)]/70 transition-all" />
-              <div className="size-12 rounded-xl bg-[var(--brand)]/10 text-brand grid place-items-center group-hover:bg-[var(--brand)] group-hover:text-[var(--navy-deep)] transition-colors">
+              <div className="size-12 rounded-xl bg-[var(--brand)]/10 text-brand grid place-items-center group-hover:bg-[var(--brand)] group-hover:text-navy-deep transition-colors">
                 <s.icon className="size-6" />
               </div>
               <h3 className="mt-5 text-lg font-semibold leading-tight">

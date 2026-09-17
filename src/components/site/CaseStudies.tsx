@@ -39,9 +39,9 @@ export function CaseStudies() {
               transition={{ delay: i * 0.1 }}
               className="group relative rounded-2xl overflow-hidden bg-card border border-border hover:shadow-elegant transition-all"
             >
-              <div className="h-44 bg-gradient-to-br from-[var(--navy)] via-[var(--navy-deep)] to-[var(--brand)]/40 relative">
+              <div className="h-44 bg-gradient-to-br from-navy via-navy-deep to-[var(--brand)]/40 relative">
                 <div aria-hidden className="absolute inset-0 cyber-grid opacity-30" />
-                <span className="absolute top-4 left-4 text-xs font-medium px-3 py-1 rounded-full bg-white/90 text-[var(--navy-deep)]">{c.tag}</span>
+                <span className="absolute top-4 left-4 text-xs font-medium px-3 py-1 rounded-full bg-white/90 text-navy-deep">{c.tag}</span>
               </div>
               <div className="p-6">
                 <h3 className="text-lg font-semibold leading-tight">{c.title}</h3>

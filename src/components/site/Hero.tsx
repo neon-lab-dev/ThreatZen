@@ -48,7 +48,7 @@ export function Hero() {
             <div className="mt-9 flex flex-wrap gap-4">
               <Link
                 to="/contact"
-                className="group inline-flex items-center gap-2 rounded-full bg-[var(--brand)] text-[var(--navy-deep)] px-6 py-3.5 text-sm font-semibold shadow-brand hover:bg-[var(--brand-glow)] transition-all hover:-translate-y-0.5"
+                className="group inline-flex items-center gap-2 rounded-full bg-[var(--brand)] text-navy-deep px-6 py-3.5 text-sm font-semibold shadow-brand hover:bg-[var(--brand-glow)] transition-all hover:-translate-y-0.5"
               >
                 Schedule Consultation
                 <ArrowRight className="size-4 group-hover:translate-x-1 transition-transform" />
@@ -86,7 +86,7 @@ export function Hero() {
                 height={1024}
                 className="w-full h-auto"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[var(--navy-deep)]/60 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-navy-deep/60 to-transparent" />
             </div>
 
             <motion.div

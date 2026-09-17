@@ -81,7 +81,7 @@ const MostPopular: React.FC = () => {
           {tags.map((tag) => (
             <button
               key={tag}
-              className="px-3 py-1.5 rounded-lg bg-[var(--surface)] text-xs font-medium text-muted-foreground hover:bg-[var(--navy)] hover:text-white transition-all duration-200"
+              className="px-3 py-1.5 rounded-lg bg-[var(--surface)] text-xs font-medium text-muted-foreground hover:bg-navy hover:text-white transition-all duration-200"
             >
               {tag}
             </button>

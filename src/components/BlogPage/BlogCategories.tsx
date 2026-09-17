@@ -24,9 +24,9 @@ const BlogCategories: React.FC<BlogCategoriesProps> = ({
           key={category.name}
           onClick={() => onCategoryChange(category.name)}
           className={`
-            px-4 py-2 rounded-full text-sm font-medium transition-all duration-200
+            px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 cursor-pointer
             ${activeCategory === category.name
-              ? 'bg-[var(--navy)] text-white'
+              ? 'bg-brand text-navy-deep'
               : 'bg-[var(--surface)] text-muted-foreground hover:bg-muted hover:text-foreground'
             }
           `}
@@ -34,7 +34,7 @@ const BlogCategories: React.FC<BlogCategoriesProps> = ({
           {category.name}
           <span className={`
             ml-2 text-xs
-            ${activeCategory === category.name ? 'text-white/60' : 'text-muted-foreground'}
+            ${activeCategory === category.name ? 'text-navy-deep' : 'text-muted-foreground'}
           `}>
             {category.count}
           </span>

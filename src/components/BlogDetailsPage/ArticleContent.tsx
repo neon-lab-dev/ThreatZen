@@ -91,7 +91,7 @@ const ArticleContent: React.FC = () => {
       </p>
 
       {/* Code/Technical Block */}
-      <div className="bg-[var(--navy-deep)] rounded-xl p-6 my-8 overflow-x-auto">
+      <div className="bg-navy-deep rounded-xl p-6 my-8 overflow-x-auto">
         <div className="flex items-center gap-2 mb-4">
           <div className="w-3 h-3 rounded-full bg-red-500/60" />
           <div className="w-3 h-3 rounded-full bg-yellow-500/60" />
@@ -117,7 +117,7 @@ const ArticleContent: React.FC = () => {
         without 24/7 monitoring, compared to 4.2 hours for those with a dedicated SOC.
       </p>
 
-      <blockquote className="border-l-4 border-[var(--navy)] pl-6 my-8 italic text-muted-foreground">
+      <blockquote className="border-l-4 border-navy pl-6 my-8 italic text-muted-foreground">
         "The difference between a minor incident and a catastrophic breach often comes down to 
         how quickly you detect and contain. Every hour matters."
         <footer className="mt-3 not-italic text-sm font-medium text-foreground">

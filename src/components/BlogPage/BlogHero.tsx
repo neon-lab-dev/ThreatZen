@@ -66,12 +66,12 @@ const BlogHero: React.FC = () => {
   return (
     <section
       ref={heroRef}
-      className="relative bg-[var(--navy-deep)] overflow-hidden isolate min-h-[85vh] flex items-center py-10"
+      className="relative bg-navy-deep overflow-hidden isolate min-h-[85vh] flex items-center py-10"
     >
       {/* ===== Ambient Background Layers ===== */}
 
       {/* Base gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-[var(--navy-deep)] via-[var(--navy)] to-[var(--navy-deep)]" />
+      <div className="absolute inset-0 bg-gradient-to-br from-navy-deep via-navy to-navy-deep" />
 
       {/* Dot grid pattern */}
       <div className="absolute inset-0 opacity-[0.04]">
@@ -201,7 +201,7 @@ const BlogHero: React.FC = () => {
                 className={`
       group relative flex flex-col items-center gap-2.5
       focus:outline-none focus-visible:ring-2 focus-visible:ring-brand/50
-      focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--navy-deep)]
+      focus-visible:ring-offset-2 focus-visible:ring-offset-navy-deep
       rounded-full px-4 py-2 transition-all duration-300 cursor-pointer
       ${isScrolling ? "opacity-60 scale-95" : "opacity-100"}
     `}

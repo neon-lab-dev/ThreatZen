@@ -49,7 +49,7 @@ const columns = [
 
 export function Footer() {
   return (
-    <footer className="bg-[var(--navy-deep)] text-white/80 relative overflow-hidden">
+    <footer className="bg-navy-deep text-white/80 relative overflow-hidden">
       <div
         aria-hidden
         className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[var(--brand)]/60 to-transparent"
@@ -114,7 +114,7 @@ export function Footer() {
                   href={link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="size-9 rounded-full glass-dark grid place-items-center hover:bg-[var(--brand)] hover:text-[var(--navy-deep)] transition-colors"
+                  className="size-9 rounded-full glass-dark grid place-items-center hover:bg-[var(--brand)] hover:text-navy-deep transition-colors"
                 >
                   <Icon className="size-4" />
                 </a>

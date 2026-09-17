@@ -97,7 +97,7 @@ const BlogGrid: React.FC<BlogGridProps> = ({ activeCategory, onCategoryChange })
 
   return (
     <div>
-      <div className='flex items-center justify-between pb-8 border-b border-muted'>
+      <div className='flex items-center justify-between pb-4 border-b border-muted'>
         {/* Category Filter */}
       <BlogCategories 
         activeCategory={activeCategory} 
@@ -109,7 +109,7 @@ const BlogGrid: React.FC<BlogGridProps> = ({ activeCategory, onCategoryChange })
           <input
             type="text"
             placeholder="Search articles..."
-            className=" px-4 py-3 pl-11 rounded-xl bg-[var(--surface)] border border-muted text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-[var(--brand)]/30 focus:border-[var(--brand)] transition-all"
+            className=" px-4 py-2.5 pl-11 rounded-xl bg-[var(--surface)] border border-muted text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-[var(--brand)]/30 focus:border-[var(--brand)] transition-all"
           />
           <svg 
             className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" 
@@ -125,7 +125,7 @@ const BlogGrid: React.FC<BlogGridProps> = ({ activeCategory, onCategoryChange })
       </div>
 
       {/* Section Header */}
-      <div className="flex items-center justify-between mb-8">
+      <div className="flex items-center justify-between mt-4 mb-8">
         <h2 className="text-xl font-semibold text-foreground">
           {activeCategory === 'All' ? 'Latest Articles' : activeCategory}
         </h2>

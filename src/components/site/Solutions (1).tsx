@@ -34,9 +34,9 @@ export function Solutions() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.45, delay: (i % 4) * 0.06 }}
-              className="group rounded-2xl bg-card p-6 border border-border hover:bg-[var(--navy-deep)] hover:text-white transition-all duration-300 cursor-pointer"
+              className="group rounded-2xl bg-card p-6 border border-border hover:bg-navy-deep hover:text-white transition-all duration-300 cursor-pointer"
             >
-              <div className="size-11 rounded-xl bg-[var(--brand)]/15 text-brand grid place-items-center group-hover:bg-[var(--brand)] group-hover:text-[var(--navy-deep)] transition-colors">
+              <div className="size-11 rounded-xl bg-[var(--brand)]/15 text-brand grid place-items-center group-hover:bg-[var(--brand)] group-hover:text-navy-deep transition-colors">
                 <s.icon className="size-5" />
               </div>
               <h3 className="mt-5 text-base font-semibold">{s.title}</h3>

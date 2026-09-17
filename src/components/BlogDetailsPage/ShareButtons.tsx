@@ -46,7 +46,7 @@ const ShareButtons: React.FC = () => {
         {shareOptions.map((option) => (
           <button
             key={option.name}
-            className="w-10 h-10 rounded-xl bg-[var(--surface)] flex items-center justify-center text-muted-foreground hover:bg-[var(--navy)] hover:text-white transition-all duration-200 cursor-pointer"
+            className="w-10 h-10 rounded-xl bg-[var(--surface)] flex items-center justify-center text-muted-foreground hover:bg-navy hover:text-white transition-all duration-200 cursor-pointer"
             aria-label={`Share on ${option.name}`}
           >
             {option.icon}
@@ -60,7 +60,7 @@ const ShareButtons: React.FC = () => {
             flex-1 h-10 rounded-xl flex items-center justify-center gap-2 text-sm font-medium transition-all duration-200 cursor-pointer
             ${copied
               ? 'bg-[var(--brand)]/20 text-brand'
-              : 'bg-[var(--surface)] text-muted-foreground hover:bg-[var(--navy)] hover:text-white'
+              : 'bg-[var(--surface)] text-muted-foreground hover:bg-navy hover:text-white'
             }
           `}
         >
