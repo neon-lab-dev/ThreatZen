@@ -1,29 +1,21 @@
-// components/AddBlogPage/BlogForm.tsx
-import React, { useMemo, useState } from 'react';
-import { toast } from 'sonner';
-import { CheckCircle2, AlertCircle } from 'lucide-react';
-import FormField from './FormField';
-import ImageUploader from './ImageUploader';
-import RichTextEditor from './RichTextEditor';
-import TagsInput from './TagsInput';                    // ← ADD
-import { blogApi, slugify } from '../../lib/blogApi';
-
-const CATEGORIES = [
-  'Threat Intelligence',
-  'Compliance',
-  'Cyber Insurance',
-  'Security Operations',
-  'Cloud Security',
-  'Incident Response',
-];
+import React, { useMemo, useState } from "react";
+import { toast } from "sonner";
+import { CheckCircle2, AlertCircle } from "lucide-react";
+import FormField from "./FormField";
+import ImageUploader from "./ImageUploader";
+import RichTextEditor from "./RichTextEditor";
+import TagsInput from "./TagsInput";
+import { blogApi, slugify } from "../../lib/blogApi";
 
 const READ_TIMES = [
-  '3 min read',
-  '5 min read',
-  '6 min read',
-  '8 min read',
-  '10 min read',
-  '12 min read',
+  "3 min read",
+  "5 min read",
+  "6 min read",
+  "8 min read",
+  "10 min read",
+  "12 min read",
+  "15 min read",
+  "20 min read",
 ];
 
 interface FormState {
@@ -33,17 +25,17 @@ interface FormState {
   readTime: string;
   content: string;
   imageFile: File | null;
-  tags: string[];                                        // ← ADD
+  tags: string[];
 }
 
 const initialState: FormState = {
-  title: '',
-  shortDescription: '',
-  category: '',
-  readTime: '',
-  content: '',
+  title: "",
+  shortDescription: "",
+  category: "",
+  readTime: "",
+  content: "",
   imageFile: null,
-  tags: [],                                              // ← ADD
+  tags: [],
 };
 
 interface FormErrors {
@@ -53,7 +45,7 @@ interface FormErrors {
   readTime?: string;
   content?: string;
   imageFile?: string;
-  tags?: string;                                         // ← ADD
+  tags?: string;
 }
 
 const BlogForm: React.FC = () => {
@@ -73,29 +65,28 @@ const BlogForm: React.FC = () => {
   const validate = (): boolean => {
     const next: FormErrors = {};
 
-    if (!form.title.trim()) next.title = 'Title is required.';
+    if (!form.title.trim()) next.title = "Title is required.";
     else if (form.title.trim().length < 5)
-      next.title = 'Title must be at least 5 characters.';
+      next.title = "Title must be at least 5 characters.";
 
     if (!form.shortDescription.trim())
-      next.shortDescription = 'Short description is required.';
+      next.shortDescription = "Short description is required.";
     else if (form.shortDescription.trim().length < 20)
-      next.shortDescription = 'Description must be at least 20 characters.';
+      next.shortDescription = "Description must be at least 20 characters.";
     else if (form.shortDescription.trim().length > 220)
-      next.shortDescription = 'Keep it under 220 characters.';
+      next.shortDescription = "Keep it under 220 characters.";
 
-    if (!form.category) next.category = 'Please choose a category.';
-    if (!form.readTime) next.readTime = 'Please choose a read time.';
-    if (!form.imageFile) next.imageFile = 'Featured image is required.';
+    if (!form.category) next.category = "Please choose a category.";
+    if (!form.readTime) next.readTime = "Please choose a read time.";
+    if (!form.imageFile) next.imageFile = "Featured image is required.";
 
     // Tags: require at least 1                                // ← ADD
-    if (form.tags.length === 0)
-      next.tags = 'Please add at least one tag.';
+    if (form.tags.length === 0) next.tags = "Please add at least one tag.";
 
-    const stripped = form.content.replace(/<[^>]*>/g, '').trim();
-    if (!stripped) next.content = 'Content cannot be empty.';
+    const stripped = form.content.replace(/<[^>]*>/g, "").trim();
+    if (!stripped) next.content = "Content cannot be empty.";
     else if (stripped.length < 50)
-      next.content = 'Content should be at least 50 characters.';
+      next.content = "Content should be at least 50 characters.";
 
     setErrors(next);
     return Object.keys(next).length === 0;
@@ -105,7 +96,7 @@ const BlogForm: React.FC = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!validate()) {
-      toast.error('Please fix the highlighted fields.');
+      toast.error("Please fix the highlighted fields.");
       return;
     }
 
@@ -122,13 +113,13 @@ const BlogForm: React.FC = () => {
         shortDescription: form.shortDescription.trim(),
         readTime: form.readTime,
         content: form.content,
-        tags: form.tags,                                 // ← ADD
+        tags: form.tags, // ← ADD
       });
 
       const ok = res?.success !== false;
-      if (!ok) throw new Error(res?.message || 'Failed to publish blog.');
+      if (!ok) throw new Error(res?.message || "Failed to publish blog.");
 
-      toast.success('Blog published successfully!');
+      toast.success("Blog published successfully!");
       setSubmitted(true);
     } catch (err) {
       console.error(err);
@@ -139,7 +130,7 @@ const BlogForm: React.FC = () => {
         axiosMsg ||
           (err instanceof Error
             ? err.message
-            : 'Something went wrong. Please try again.')
+            : "Something went wrong. Please try again."),
       );
     } finally {
       setIsSubmitting(false);
@@ -170,71 +161,34 @@ const BlogForm: React.FC = () => {
             label="Blog Title"
             name="title"
             value={form.title}
-            onChange={(v) => update('title', v)}
+            onChange={(v) => update("title", v)}
             placeholder="e.g. The 2025 Ransomware Playbook"
             required
             error={errors.title}
             hint="Use a clear, descriptive title — max 120 characters recommended."
           />
-
-          {slugPreview && (
-            <div className="rounded-xl bg-surface border border-muted px-4 py-3">
-              <p className="text-[11px] font-semibold uppercase tracking-wider text-muted-foreground mb-1">
-                URL Slug (auto-generated)
-              </p>
-              <p className="text-sm font-mono text-foreground break-all">
-                /blog/<span className="text-brand">{slugPreview}</span>
-              </p>
-            </div>
-          )}
-
           <FormField
             label="Short Description"
             name="shortDescription"
             as="textarea"
             rows={3}
             value={form.shortDescription}
-            onChange={(v) => update('shortDescription', v)}
+            onChange={(v) => update("shortDescription", v)}
             placeholder="A one or two sentence summary that appears on the blog listing."
             required
             error={errors.shortDescription}
             hint={`${form.shortDescription.length}/220 characters`}
           />
-
           <div className="grid sm:grid-cols-2 gap-5">
-            {/* Category */}
-            <div>
-              <label
-                htmlFor="category"
-                className="block text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-1.5"
-              >
-                Category <span className="text-brand">*</span>
-              </label>
-              <select
-                id="category"
-                value={form.category}
-                onChange={(e) => update('category', e.target.value)}
-                className={`
-                  w-full rounded-xl bg-white border px-4 py-3 text-sm text-foreground
-                  focus:outline-none focus:ring-2 transition-all duration-200
-                  ${
-                    errors.category
-                      ? 'border-red-400 focus:ring-red-200 focus:border-red-400'
-                      : 'border-muted focus:ring-brand/30 focus:border-brand'
-                  }
-                `}
-              >
-                <option value="">Select a category</option>
-                {CATEGORIES.map((c) => (
-                  <option key={c} value={c}>
-                    {c}
-                  </option>
-                ))}
-              </select>
-              {errors.category && (
-                <p className="mt-1.5 text-xs text-red-500">{errors.category}</p>
-              )}
-            </div>
+            <FormField
+              label="Category"
+              name="category"
+              value={form.category}
+              onChange={(v) => update("category", v)}
+              placeholder="e.g. Security, Productivity, etc."
+              required
+              error={errors.category}
+            />
 
             {/* Read Time */}
             <div>
@@ -247,14 +201,14 @@ const BlogForm: React.FC = () => {
               <select
                 id="readTime"
                 value={form.readTime}
-                onChange={(e) => update('readTime', e.target.value)}
+                onChange={(e) => update("readTime", e.target.value)}
                 className={`
                   w-full rounded-xl bg-white border px-4 py-3 text-sm text-foreground
                   focus:outline-none focus:ring-2 transition-all duration-200
                   ${
                     errors.readTime
-                      ? 'border-red-400 focus:ring-red-200 focus:border-red-400'
-                      : 'border-muted focus:ring-brand/30 focus:border-brand'
+                      ? "border-red-400 focus:ring-red-200 focus:border-red-400"
+                      : "border-muted focus:ring-brand/30 focus:border-brand"
                   }
                 `}
               >
@@ -270,12 +224,11 @@ const BlogForm: React.FC = () => {
               )}
             </div>
           </div>
-
-          {/* Tags — full width below category/readTime */}     {/* ← ADD */}
+          {/* Tags — full width below category/readTime */} {/* ← ADD */}
           <TagsInput
             label="Tags"
             value={form.tags}
-            onChange={(tags) => update('tags', tags)}
+            onChange={(tags) => update("tags", tags)}
             placeholder="Type a tag and press Enter (e.g. Ransomware, Zero Trust)"
             maxTags={10}
             maxTagLength={24}
@@ -297,7 +250,7 @@ const BlogForm: React.FC = () => {
         </div>
 
         <ImageUploader
-          onFileChange={(file) => update('imageFile', file)}
+          onFileChange={(file) => update("imageFile", file)}
           onError={(msg) => toast.error(msg)}
         />
         {errors.imageFile && (
@@ -317,7 +270,7 @@ const BlogForm: React.FC = () => {
 
         <RichTextEditor
           value={form.content}
-          onChange={(html) => update('content', html)}
+          onChange={(html) => update("content", html)}
           error={errors.content}
         />
       </div>
@@ -354,7 +307,7 @@ const BlogForm: React.FC = () => {
             <button
               type="submit"
               disabled={isSubmitting || submitted}
-              className="inline-flex items-center gap-2 rounded-xl bg-navy hover:bg-navy-deep text-white px-6 py-2.5 text-sm font-semibold transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
+              className="inline-flex items-center gap-2 rounded-xl bg-navy hover:bg-navy-deep text-white px-6 py-2.5 text-sm font-semibold transition-colors disabled:opacity-60 cursor-pointer disabled:cursor-not-allowed"
             >
               {isSubmitting ? (
                 <>
@@ -385,7 +338,7 @@ const BlogForm: React.FC = () => {
                   Published
                 </>
               ) : (
-                'Publish Blog'
+                "Publish Blog"
               )}
             </button>
           </div>

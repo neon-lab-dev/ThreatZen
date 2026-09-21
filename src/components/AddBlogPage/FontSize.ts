@@ -16,7 +16,7 @@ export type FontSize =
 declare module '@tiptap/core' {
   interface Commands<ReturnType> {
     fontSize: {
-      setFontSize: (size: FontSize) => ReturnType;
+      setFontSize: (size: string) => ReturnType;
       unsetFontSize: () => ReturnType;
     };
   }

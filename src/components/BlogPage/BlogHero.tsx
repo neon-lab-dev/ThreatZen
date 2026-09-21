@@ -32,7 +32,7 @@ const BlogHero: React.FC = () => {
       const eased = 1 - Math.pow(1 - progress, 3);
 
       setCounts({
-        articles: Math.floor(eased * 150),
+        articles: Math.floor(eased * 200),
         readers: Math.floor(eased * 12),
       });
 
@@ -175,7 +175,7 @@ const BlogHero: React.FC = () => {
             <div className="flex flex-wrap items-center justify-center gap-8 sm:gap-12 mt-14 pt-8 border-t border-white/10 animate-fade-in-up animation-delay-500">
               <StatItem
                 value={`${counts.articles}+`}
-                label="Articles Published"
+                label="Incidents Analyzed"
                 accent={false}
               />
               <Divider />
