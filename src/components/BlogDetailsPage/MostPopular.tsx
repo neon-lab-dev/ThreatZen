@@ -1,95 +1,143 @@
-import React from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
+import { Link } from 'react-router-dom';
 import BlogCard from '../BlogPage/BlogCard';
+import { blogApi, type Blog } from '../../lib/blogApi';
 
-const popularPosts = [
-  {
-    id: 1,
-    category: 'Threat Intelligence',
-    title: 'The 2025 Ransomware Playbook for Indian Enterprises',
-    author: 'Priya Sharma',
-    authorInitials: 'PS',
-    date: 'Dec 18, 2025',
-    readTime: '8 min read',
-    excerpt: '',
-  },
-  {
-    id: 2,
-    category: 'Compliance',
-    title: 'DPDP 2023 Final Rules: Complete Compliance Checklist',
-    author: 'Kavita Nair',
-    authorInitials: 'KN',
-    date: 'Dec 14, 2025',
-    readTime: '9 min read',
-    excerpt: '',
-  },
-  {
-    id: 3,
-    category: 'Cyber Insurance',
-    title: 'How to Get Better Cyber Insurance Terms in 2026',
-    author: 'Rahul Desai',
-    authorInitials: 'RD',
-    date: 'Dec 12, 2025',
-    readTime: '7 min read',
-    excerpt: '',
-  },
-  {
-    id: 4,
-    category: 'Security Operations',
-    title: 'Building a 24/7 SOC Without Breaking the Budget',
-    author: 'Vikram Singh',
-    authorInitials: 'VS',
-    date: 'Dec 8, 2025',
-    readTime: '6 min read',
-    excerpt: '',
-  },
-];
+interface MostPopularProps {
+  tags: string[];
+  slug?: string;
+  limit?: number;
+}
 
-const tags = [
-  'Ransomware',
-  'Zero Trust',
-  'Cloud Security',
-  'Incident Response',
-  'Threat Hunting',
-  'Data Privacy',
-  'SOC 2',
-  'ISO 27001',
-  'Penetration Testing',
-  'Security Awareness',
-];
+const MostPopular: React.FC<MostPopularProps> = ({tags, slug, limit = 4 }) => {
+  const [blogs, setBlogs] = useState<Blog[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
-const MostPopular: React.FC = () => {
+  /* ===== Fetch all blogs on mount ===== */
+  useEffect(() => {
+    let cancelled = false;
+
+    (async () => {
+      setLoading(true);
+      setError(null);
+      try {
+        const res = await blogApi.getAllBlogs();
+        if (!cancelled) {
+          setBlogs(res.data ?? []);
+        }
+      } catch (err) {
+        console.error(err);
+        if (!cancelled) setError('Unable to load articles.');
+      } finally {
+        if (!cancelled) setLoading(false);
+      }
+    })();
+
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
+  /* ===== Exclude current article, take first N ===== */
+  const popularPosts = useMemo(() => {
+    return blogs.filter((post) => post.slug !== slug).slice(0, limit);
+  }, [blogs, slug, limit]);
+
+  /* ===== Date formatter ===== */
+  const formatDate = (iso?: string) => {
+    if (!iso) return '';
+    try {
+      return new Date(iso).toLocaleDateString('en-US', {
+        month: 'short',
+        day: 'numeric',
+        year: 'numeric',
+      });
+    } catch {
+      return '';
+    }
+  };
+
   return (
     <div className="space-y-10">
-      {/* Popular Posts */}
+      {/* ===== Popular Posts ===== */}
       <div>
         <h3 className="text-sm font-semibold text-foreground uppercase tracking-wider">
           Most Popular
         </h3>
-        <div className="space-y-1">
-          {popularPosts.map((post) => (
-            <BlogCard key={post.id} {...post} variant="compact" />
-          ))}
+
+        <div className="space-y-1 mt-2">
+          {/* Loading skeletons */}
+          {loading &&
+            Array.from({ length: limit }).map((_, i) => (
+              <CompactSkeleton key={i} />
+            ))}
+
+          {/* Error */}
+          {!loading && error && (
+            <p className="text-xs text-muted-foreground py-3">{error}</p>
+          )}
+
+          {/* Empty */}
+          {!loading && !error && popularPosts.length === 0 && (
+            <p className="text-xs text-muted-foreground py-3">
+              No other articles yet.
+            </p>
+          )}
+
+          {/* Cards */}
+          {!loading &&
+            !error &&
+            popularPosts.map((post) => (
+              <BlogCard
+                key={post._id}
+                category={post.category}
+                title={post.title}
+                excerpt={post.shortDescription}
+                author=""
+                authorInitials=""
+                date={formatDate(post.createdAt)}
+                readTime={post.readTime}
+                image={post.imageUrl}
+                slug={post.slug}
+                variant="compact"
+              />
+            ))}
         </div>
       </div>
 
-      {/* tags */}
+      {/* ===== Tags ===== */}
       <div>
         <h3 className="text-sm font-semibold text-foreground uppercase tracking-wider mb-5">
           Tags
         </h3>
         <div className="flex flex-wrap gap-2">
-          {tags.map((tag) => (
-            <button
+          {tags?.map((tag:string) => (
+            <Link
               key={tag}
+              to={`/blogs?tag=${encodeURIComponent(tag)}`}
               className="px-3 py-1.5 rounded-lg bg-[var(--surface)] text-xs font-medium text-muted-foreground hover:bg-navy hover:text-white transition-all duration-200"
             >
               {tag}
-            </button>
+            </Link>
           ))}
         </div>
       </div>
     </div>
   );
 };
+
+/* ===== Compact loading skeleton ===== */
+const CompactSkeleton: React.FC = () => (
+  <div className="flex gap-4 py-5 border-b border-muted last:border-0 animate-pulse">
+    <div className="w-20 h-20 rounded-xl bg-[var(--surface)] flex-shrink-0" />
+    <div className="flex-1 space-y-2 py-1">
+      <div className="h-3 bg-[var(--surface)] rounded w-24" />
+      <div className="h-4 bg-[var(--surface)] rounded w-full" />
+      <div className="h-4 bg-[var(--surface)] rounded w-3/4" />
+      <div className="h-3 bg-[var(--surface)] rounded w-32 mt-1" />
+    </div>
+  </div>
+);
 
 export default MostPopular;

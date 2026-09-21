@@ -1,6 +1,6 @@
-import React from 'react';
+/* eslint-disable @typescript-eslint/no-explicit-any */
 
-const ArticleHero: React.FC = () => {
+const ArticleHero = ({ blog } : any) => {
   return (
     <section className="relative bg-white overflow-hidden pt-16">
       {/* Subtle grid pattern — light */}
@@ -9,7 +9,7 @@ const ArticleHero: React.FC = () => {
           className="absolute inset-0"
           style={{
             backgroundImage: `radial-gradient(circle at 1px 1px, rgba(15,23,42,0.06) 1px, transparent 0)`,
-            backgroundSize: '40px 40px',
+            backgroundSize: "40px 40px",
           }}
         />
       </div>
@@ -37,13 +37,17 @@ const ArticleHero: React.FC = () => {
               stroke="currentColor"
               strokeWidth={2}
             >
-              <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M9 5l7 7-7 7"
+              />
             </svg>
             <a
-              href="/blog"
+              href="/blogs"
               className="text-muted-foreground hover:text-foreground transition-colors"
             >
-              Blog
+              Blogs
             </a>
             <svg
               className="w-3 h-3 text-muted-foreground/60"
@@ -52,15 +56,19 @@ const ArticleHero: React.FC = () => {
               stroke="currentColor"
               strokeWidth={2}
             >
-              <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M9 5l7 7-7 7"
+              />
             </svg>
-            <span className="text-foreground font-medium">Threat Intelligence</span>
+            <span className="text-foreground font-medium">{blog.title}</span>
           </nav>
 
           {/* Category & Read Time */}
           <div className="flex flex-wrap items-center gap-4 mb-6">
             <span className="px-3 py-1.5 rounded-full bg-[var(--brand)]/12 text-[var(--brand)] text-xs font-semibold tracking-wide uppercase border border-[var(--brand)]/20">
-              Threat Intelligence
+              {blog?.category}
             </span>
             <span className="text-sm text-muted-foreground">8 min read</span>
             <span className="w-1 h-1 rounded-full bg-muted-foreground/40 hidden sm:block" />
@@ -71,26 +79,24 @@ const ArticleHero: React.FC = () => {
 
           {/* Title */}
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground tracking-tight leading-[1.15] mb-6">
-            The 2025 Ransomware Playbook: How Indian Enterprises Are Building Resilience
+            {blog?.title}
           </h1>
 
           {/* Subtitle / Lede */}
           <p className="text-lg lg:text-xl text-muted-foreground leading-relaxed mb-10">
-            Ransomware attacks on Indian enterprises grew 67% year-over-year. We analyzed 200+
-            incidents to understand what separates organizations that recover in days from those
-            that take months.
+            {blog?.shortDescription}
           </p>
         </div>
 
         {/* ===== Feature Image ===== */}
-       <div className="rounded-3xl overflow-hidden border border-muted shadow-[0_20px_60px_-20px_rgba(15,23,42,0.15)] flex items-center justify-center mt-4">
-            <img
-              src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=1600&q=80"
-              alt="Ransomware resilience illustration"
-              className="w-full h-auto aspect-[16/9] object-cover"
-              loading="eager"
-            />
-          </div>
+        <div className="rounded-3xl overflow-hidden border border-muted shadow-[0_20px_60px_-20px_rgba(15,23,42,0.15)] flex items-center justify-center mt-4 w-full">
+          <img
+            src={blog?.imageUrl}
+            alt="Ransomware resilience illustration"
+            className="w-full h-auto"
+            loading="eager"
+          />
+        </div>
       </div>
     </section>
   );

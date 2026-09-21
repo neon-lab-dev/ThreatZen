@@ -7,6 +7,7 @@ interface BlogCardProps {
   author: string;
   authorInitials: string;
   date: string;
+  slug: string;
   readTime: string;
   image?: string;
   variant?: "default" | "compact";
@@ -21,12 +22,13 @@ const BlogCard: React.FC<BlogCardProps> = ({
   excerpt,
   date,
   readTime,
+  slug,
   image = DEFAULT_IMAGE,
   variant = "default",
 }) => {
   if (variant === "compact") {
     return (
-      <a href={`/blog/${1}`} className="group flex gap-4 py-5 border-b border-muted last:border-0">
+      <a href={`/blog/${slug}`} className="group flex gap-4 py-5 border-b border-muted last:border-0">
         <div className="w-20 h-20 rounded-xl bg-[var(--surface)] flex-shrink-0 overflow-hidden">
           <img
             src={image}
@@ -51,7 +53,7 @@ const BlogCard: React.FC<BlogCardProps> = ({
   }
 
   return (
-    <article className="group bg-[var(--card)] rounded-2xl border border-muted overflow-hidden hover:border-[var(--brand)]/30 hover:shadow-lg hover:shadow-navy/5 transition-all duration-300 flex flex-col">
+    <a href={`/blog/${slug}`} className="group bg-[var(--card)] rounded-2xl border border-muted overflow-hidden hover:border-[var(--brand)]/30 hover:shadow-lg hover:shadow-navy/5 transition-all duration-300 flex flex-col cursor-pointer">
       {/* Image */}
       <div className="aspect-[16/9] bg-[var(--surface)] relative overflow-hidden">
         <img
@@ -94,7 +96,7 @@ const BlogCard: React.FC<BlogCardProps> = ({
           <span className="text-xs text-muted-foreground">{date}</span>
 
           <a
-            href={`/blog/${1}`}
+            href={`/blog/${slug}`}
             type="button"
             className="inline-flex items-center gap-1.5 text-xs font-semibold text-navy group-hover:text-[var(--brand)] transition-colors duration-300"
           >
@@ -113,7 +115,7 @@ const BlogCard: React.FC<BlogCardProps> = ({
           </a>
         </div>
       </div>
-    </article>
+    </a>
   );
 };
 
