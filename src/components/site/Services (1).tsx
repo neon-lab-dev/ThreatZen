@@ -6,7 +6,6 @@ import {
   Code2,
   Network,
   Cloud,
-  Eye,
   Briefcase,
   FileCheck,
   ScrollText,
@@ -50,11 +49,11 @@ const services = [
     title: "Cloud Security Assessment",
     desc: "AWS, Azure and GCP security reviews against industry benchmarks.",
   },
-  {
-    icon: Eye,
-    title: "SOC Services",
-    desc: "24x7 Security Operations Center monitoring, detection and response.",
-  },
+  // {
+  //   icon: Eye,
+  //   title: "SOC Services",
+  //   desc: "24x7 Security Operations Center monitoring, detection and response.",
+  // },
   {
     icon: Activity,
     title: "EDR / XDR Deployment",
@@ -129,29 +128,35 @@ export function Services() {
           </p>
         </div>
 
-        <div className="mt-14 grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-          {services.map((s, i) => (
-            <motion.div
-              key={s.title}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.5, delay: (i % 3) * 0.08 }}
-              className="group relative rounded-2xl p-6 bg-card border border-border hover:border-[var(--brand)]/40 hover:shadow-elegant transition-all duration-300 hover:-translate-y-1"
-            >
-              <div className="absolute inset-x-6 -top-px h-px bg-gradient-to-r from-transparent via-[var(--brand)]/0 to-transparent group-hover:via-[var(--brand)]/70 transition-all" />
-              <div className="size-12 rounded-xl bg-[var(--brand)]/10 text-brand grid place-items-center group-hover:bg-[var(--brand)] group-hover:text-navy-deep transition-colors">
-                <s.icon className="size-6" />
-              </div>
-              <h3 className="mt-5 text-lg font-semibold leading-tight">
-                {s.title}
-              </h3>
-              <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
-                {s.desc}
-              </p>
-            </motion.div>
-          ))}
-        </div>
+        <div className="mt-14 flex flex-wrap justify-center gap-5">
+  {services.map((s, i) => (
+    <motion.div
+      key={s.title}
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-50px" }}
+      transition={{ duration: 0.5, delay: (i % 3) * 0.08 }}
+      className="
+        group relative rounded-2xl p-6
+        bg-card border border-border
+        hover:border-[var(--brand)]/40 hover:shadow-elegant
+        transition-all duration-300 hover:-translate-y-1
+        w-full sm:w-[calc(50%-10px)] lg:w-[calc(33.333%-14px)]
+      "
+    >
+      <div className="absolute inset-x-6 -top-px h-px bg-gradient-to-r from-transparent via-[var(--brand)]/0 to-transparent group-hover:via-[var(--brand)]/70 transition-all" />
+      <div className="size-12 rounded-xl bg-[var(--brand)]/10 text-brand grid place-items-center group-hover:bg-[var(--brand)] group-hover:text-navy-deep transition-colors">
+        <s.icon className="size-6" />
+      </div>
+      <h3 className="mt-5 text-lg font-semibold leading-tight">
+        {s.title}
+      </h3>
+      <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
+        {s.desc}
+      </p>
+    </motion.div>
+  ))}
+</div>
       </div>
     </section>
   );

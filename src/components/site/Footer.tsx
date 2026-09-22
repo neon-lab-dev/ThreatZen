@@ -23,7 +23,7 @@ const columns = [
       { label: "VAPT", to: "/services" },
       { label: "Compliance", to: "/services" },
       { label: "Cloud Security", to: "/services" },
-      { label: "SOC Services", to: "/services" },
+      // { label: "SOC Services", to: "/services" },
       { label: "Consulting", to: "/services" },
     ],
   },

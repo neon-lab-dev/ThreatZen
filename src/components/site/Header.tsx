@@ -266,7 +266,7 @@ function DesktopDropdown({
   return (
     <div
       ref={containerRef}
-      className="relative"
+      className="relative cursor-pointer"
       onMouseEnter={handleEnter}
       onMouseLeave={handleLeave}
     >
@@ -277,7 +277,7 @@ function DesktopDropdown({
         aria-expanded={open}
         className={`
           flex items-center gap-1 px-3 py-2 text-sm font-medium
-          rounded-md transition-colors ${textColor}
+          rounded-md transition-colors cursor-pointer ${textColor}
           hover:underline
           ${isActive ? "text-brand" : ""}
         `}
