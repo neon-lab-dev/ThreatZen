@@ -6,7 +6,6 @@ interface ArticleContentProps {
 }
 
 const ArticleContent: React.FC<ArticleContentProps> = ({ content }) => {
-  // Guard against empty content
   if (!content || !content.trim()) {
     return (
       <div className="text-center py-12 text-muted-foreground">
@@ -39,19 +38,22 @@ const ArticleContent: React.FC<ArticleContentProps> = ({ content }) => {
         // ===== Inline code =====
         'prose-code:bg-[var(--surface)] prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:text-sm prose-code:text-foreground prose-code:before:content-none prose-code:after:content-none',
 
-        // ===== Code blocks (from CodeBlockLowlight) =====
+        // ===== Code blocks =====
         'prose-pre:bg-[var(--navy-deep)] prose-pre:text-white/90 prose-pre:rounded-xl prose-pre:p-5 prose-pre:text-sm prose-pre:overflow-x-auto prose-pre:my-8',
 
         // ===== Blockquotes =====
         'prose-blockquote:border-l-4 prose-blockquote:border-[var(--navy)] prose-blockquote:bg-[var(--surface)] prose-blockquote:py-3 prose-blockquote:px-5 prose-blockquote:rounded-r-xl prose-blockquote:not-italic prose-blockquote:text-foreground prose-blockquote:font-normal prose-blockquote:my-8',
 
-        // ===== LISTS =====
-        'prose-ul:list-disc prose-ul:pl-6 prose-ul:my-6',
-        'prose-ol:list-decimal prose-ol:pl-6 prose-ol:my-6',
-        '[&_li]:my-2 [&_li]:text-foreground [&_li]:leading-relaxed',
+        // ===== LISTS — arbitrary selectors to force markers =====
+        '[&_ul]:list-disc [&_ul]:pl-6 [&_ul]:my-6',
+        '[&_ol]:list-decimal [&_ol]:pl-6 [&_ol]:my-6',
+        '[&_li]:my-2 [&_li]:pl-1 [&_li]:text-foreground [&_li]:leading-relaxed',
         '[&_li>p]:my-0',
+        // Nested list markers
         '[&_ul_ul]:list-[circle]',
         '[&_ul_ul_ul]:list-[square]',
+        '[&_ol_ol]:list-[lower-alpha]',
+        '[&_ol_ol_ol]:list-[lower-roman]',
 
         // ===== TABLES =====
         'prose-table:my-8 prose-table:w-full prose-table:border-collapse',

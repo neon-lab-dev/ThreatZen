@@ -1,6 +1,18 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
 const ArticleHero = ({ blog } : any) => {
+    const formatDate = (iso?: string) => {
+    if (!iso) return "";
+    try {
+      return new Date(iso).toLocaleDateString("en-US", {
+        month: "short",
+        day: "numeric",
+        year: "numeric",
+      });
+    } catch {
+      return "";
+    }
+  };
   return (
     <section className="relative bg-white overflow-hidden pt-16">
       {/* Subtle grid pattern — light */}
@@ -70,10 +82,10 @@ const ArticleHero = ({ blog } : any) => {
             <span className="px-3 py-1.5 rounded-full bg-[var(--brand)]/12 text-[var(--brand)] text-xs font-semibold tracking-wide uppercase border border-[var(--brand)]/20">
               {blog?.category}
             </span>
-            <span className="text-sm text-muted-foreground">8 min read</span>
+            <span className="text-sm text-muted-foreground">{blog?.readTime}</span>
             <span className="w-1 h-1 rounded-full bg-muted-foreground/40 hidden sm:block" />
             <span className="text-sm text-muted-foreground hidden sm:block">
-              Dec 18, 2025
+              {formatDate(blog?.createdAt)}
             </span>
           </div>
 
