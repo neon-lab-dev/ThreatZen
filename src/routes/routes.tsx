@@ -13,6 +13,7 @@ import { Services } from "../components/site/Services (1)";
 import Blogs from "../pages/blogs";
 import BlogDetails from "../pages/BlogDetails";
 import AddBlog from "../pages/AddBlog";
+import ComplianceServices from "../pages/ComplianceServices";
 
 export const router = createBrowserRouter([
   {
@@ -71,6 +72,10 @@ export const router = createBrowserRouter([
       {
         path: "/add/blog",
         element: <AddBlog />,
+      },
+      {
+        path: "/compliance-services",
+        element: <ComplianceServices />,
       },
     ],
   },
