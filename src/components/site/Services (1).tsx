@@ -15,7 +15,6 @@ import {
   Server,
   Activity,
   UserCheck,
-  AlertTriangle,
 } from "lucide-react";
 
 const services = [
@@ -104,11 +103,11 @@ const services = [
     title: "Identity & Access Management (IAM)",
     desc: "Implement secure authentication, privileged access management, SSO, MFA and role-based access controls.",
   },
-  {
-    icon: AlertTriangle,
-    title: "Incident Response & Digital Forensics",
-    desc: "Rapid breach investigation, malware analysis, evidence collection and incident containment to minimize business impact.",
-  },
+  // {
+  //   icon: AlertTriangle,
+  //   title: "Incident Response & Digital Forensics",
+  //   desc: "Rapid breach investigation, malware analysis, evidence collection and incident containment to minimize business impact.",
+  // },
 ];
 
 export function Services() {

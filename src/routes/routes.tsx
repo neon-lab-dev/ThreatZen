@@ -14,6 +14,7 @@ import Blogs from "../pages/blogs";
 import BlogDetails from "../pages/BlogDetails";
 import AddBlog from "../pages/AddBlog";
 import ComplianceServices from "../pages/ComplianceServices";
+import SecurityServices from "../pages/SecurityServices";
 
 export const router = createBrowserRouter([
   {
@@ -76,6 +77,10 @@ export const router = createBrowserRouter([
       {
         path: "/compliance-services",
         element: <ComplianceServices />,
+      },
+      {
+        path: "/security-services",
+        element: <SecurityServices />,
       },
     ],
   },
