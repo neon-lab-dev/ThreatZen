@@ -1,11 +1,11 @@
-// components/ComplianceServicesPage/CTASection.tsx
-import React, { useEffect, useRef, useState } from 'react';
-import { AnimatePresence, motion, useInView } from 'framer-motion';
-import { ArrowRight, Phone, Sparkles } from 'lucide-react';
+import React, { useEffect, useRef, useState } from "react";
+import { AnimatePresence, motion, useInView } from "framer-motion";
+import { ArrowRight, Sparkles } from "lucide-react";
+import { MagneticButton } from "./ComplianceHero";
 
 const CTASection: React.FC = () => {
   const sectionRef = useRef<HTMLElement>(null);
-  const inView = useInView(sectionRef, { once: true, margin: '-100px' });
+  const inView = useInView(sectionRef, { once: true, margin: "-100px" });
 
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
 
@@ -22,8 +22,8 @@ const CTASection: React.FC = () => {
       });
     };
 
-    el.addEventListener('mousemove', onMove);
-    return () => el.removeEventListener('mousemove', onMove);
+    el.addEventListener("mousemove", onMove);
+    return () => el.removeEventListener("mousemove", onMove);
   }, []);
 
   return (
@@ -41,7 +41,7 @@ const CTASection: React.FC = () => {
         className="absolute inset-0 opacity-[0.05] pointer-events-none"
         style={{
           backgroundImage: `radial-gradient(circle at 1px 1px, white 1px, transparent 0)`,
-          backgroundSize: '36px 36px',
+          backgroundSize: "36px 36px",
         }}
       />
 
@@ -76,7 +76,6 @@ const CTASection: React.FC = () => {
       {/* ===== Content ===== */}
       <div className="relative max-w-7xl mx-auto px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
-
           {/* ===== Left: Heading + CTA ===== */}
           <motion.div
             initial={{ opacity: 0, y: 24 }}
@@ -101,62 +100,43 @@ const CTASection: React.FC = () => {
                 <motion.span
                   initial={{ scaleX: 0 }}
                   animate={inView ? { scaleX: 1 } : {}}
-                  transition={{ duration: 0.9, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
+                  transition={{
+                    duration: 0.9,
+                    delay: 0.5,
+                    ease: [0.22, 1, 0.36, 1],
+                  }}
                   className="absolute bottom-1 left-0 right-0 h-[3px] bg-brand/30 rounded-full origin-left"
                 />
                 {/* Glow behind word */}
                 <span className="absolute inset-0 blur-2xl bg-brand opacity-25 -z-0" />
               </span>
-              <span className="text-white"> — Where Innovation Meets Security.</span>
+              <span className="text-white">
+                {" "}
+                — Where Innovation Meets Security.
+              </span>
             </h2>
 
             {/* Subtext */}
             <p className="text-base lg:text-lg text-white/60 leading-relaxed max-w-xl mb-8">
-              Let our compliance experts map your regulatory landscape and build a
-              framework aligned with your business — not a template.
+              Let our compliance experts map your regulatory landscape and build
+              a framework aligned with your business — not a template.
             </p>
 
             {/* CTAs */}
             <div className="flex flex-wrap items-center gap-4">
               {/* Primary */}
-              <motion.button
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                type="button"
-                className="
-                  group relative inline-flex items-center gap-2
-                  px-6 py-3.5 rounded-xl
-                  bg-brand text-navy-deep font-semibold text-sm
-                  overflow-hidden
-                  shadow-[0_0_0_0_rgba(76,192,138,0.4)]
-                  hover:shadow-[0_0_40px_-4px_rgba(76,192,138,0.6)]
-                  transition-all duration-300
-                "
-              >
-                {/* Shine sweep on hover */}
-                <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/30 to-transparent group-hover:translate-x-full transition-transform duration-700 ease-out" />
-
-                <span className="relative">Talk to an Expert</span>
-                <ArrowRight className="relative w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5" />
-              </motion.button>
+              <a href="/services">
+                <MagneticButton variant="primary">
+                  Explore Our Solutions
+                </MagneticButton>
+              </a>
 
               {/* Secondary */}
-              <motion.button
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                type="button"
-                className="
-                  group inline-flex items-center gap-2
-                  px-6 py-3.5 rounded-xl
-                  bg-white/[0.06] border border-white/15 text-white
-                  font-semibold text-sm backdrop-blur-sm
-                  hover:bg-white/[0.12] hover:border-white/25
-                  transition-all duration-300
-                "
-              >
-                <Phone className="w-4 h-4 text-brand transition-transform duration-300 group-hover:rotate-12" />
-                Book a Call
-              </motion.button>
+              <a href="/contact">
+                <MagneticButton variant="secondary">
+                  Book Your Free Demo
+                </MagneticButton>
+              </a>
             </div>
           </motion.div>
 
@@ -164,7 +144,11 @@ const CTASection: React.FC = () => {
           <motion.div
             initial={{ opacity: 0, x: 24 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.7, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
+            transition={{
+              duration: 0.7,
+              delay: 0.15,
+              ease: [0.22, 1, 0.36, 1],
+            }}
             className="lg:col-span-5"
           >
             <LiveChatCard />
@@ -204,26 +188,77 @@ const CTASection: React.FC = () => {
    ============================================================ */
 
 const CHAT_SEQUENCE = [
-  { sender: 'bot' as const, text: "Hi there 👋 Welcome to ThreatZen. How can I help you today?" },
-  { sender: 'user' as const, text: "Hi — we're preparing for SOC 2 Type II certification." },
-  { sender: 'bot' as const, text: "Great! I can route you to a compliance specialist. What's your company size?" },
-  { sender: 'user' as const, text: "Around 200 employees, fintech space." },
-  { sender: 'bot' as const, text: "Perfect. We work with several BFSI clients on SOC 2. Are you targeting Type I or Type II?" },
-  { sender: 'user' as const, text: "Type II. Our customers are asking for it before renewal." },
-  { sender: 'bot' as const, text: "Understood. Which trust services criteria are in scope — Security only, or also Availability and Confidentiality?" },
-  { sender: 'user' as const, text: "Security and Confidentiality for now." },
-  { sender: 'bot' as const, text: "Good — that's a common combo. Do you already have an ISMS in place, or are we starting from scratch?" },
-  { sender: 'user' as const, text: "We have ISO 27001 controls documented, but no formal evidence process." },
-  { sender: 'bot' as const, text: "That helps a lot — roughly 60% of SOC 2 controls overlap with ISO 27001. We can leverage your existing documentation." },
-  { sender: 'user' as const, text: "Nice. How long does a typical Type II readiness + audit take?" },
-  { sender: 'bot' as const, text: "For your size and current posture, we'd estimate 10–12 weeks to readiness, then a 3–12 month observation window depending on your auditor." },
-  { sender: 'user' as const, text: "Can you help coordinate with the audit firm, or do we handle that separately?" },
-  { sender: 'bot' as const, text: "We handle end-to-end — readiness, evidence automation, and auditor coordination with CPA firms we partner with." },
-  { sender: 'user' as const, text: "What does pricing typically look like?" },
-  { sender: 'bot' as const, text: "Our engagement starts at ₹4.5L for readiness and evidence setup. Final pricing depends on scope and auditor choice." },
-  { sender: 'user' as const, text: "That's reasonable. Can we see a proposal by next week?" },
-  { sender: 'bot' as const, text: "Absolutely. I'll need your work email and preferred slot for a 30-min scoping call. Which day works best?" },
-  { sender: 'user' as const, text: "Tuesday afternoon works. I'll share my email now." },
+  {
+    sender: "bot" as const,
+    text: "Hi there 👋 Welcome to ThreatZen. How can I help you today?",
+  },
+  {
+    sender: "user" as const,
+    text: "Hi — we're preparing for SOC 2 Type II certification.",
+  },
+  {
+    sender: "bot" as const,
+    text: "Great! I can route you to a compliance specialist. What's your company size?",
+  },
+  { sender: "user" as const, text: "Around 200 employees, fintech space." },
+  {
+    sender: "bot" as const,
+    text: "Perfect. We work with several BFSI clients on SOC 2. Are you targeting Type I or Type II?",
+  },
+  {
+    sender: "user" as const,
+    text: "Type II. Our customers are asking for it before renewal.",
+  },
+  {
+    sender: "bot" as const,
+    text: "Understood. Which trust services criteria are in scope — Security only, or also Availability and Confidentiality?",
+  },
+  { sender: "user" as const, text: "Security and Confidentiality for now." },
+  {
+    sender: "bot" as const,
+    text: "Good — that's a common combo. Do you already have an ISMS in place, or are we starting from scratch?",
+  },
+  {
+    sender: "user" as const,
+    text: "We have ISO 27001 controls documented, but no formal evidence process.",
+  },
+  {
+    sender: "bot" as const,
+    text: "That helps a lot — roughly 60% of SOC 2 controls overlap with ISO 27001. We can leverage your existing documentation.",
+  },
+  {
+    sender: "user" as const,
+    text: "Nice. How long does a typical Type II readiness + audit take?",
+  },
+  {
+    sender: "bot" as const,
+    text: "For your size and current posture, we'd estimate 10–12 weeks to readiness, then a 3–12 month observation window depending on your auditor.",
+  },
+  {
+    sender: "user" as const,
+    text: "Can you help coordinate with the audit firm, or do we handle that separately?",
+  },
+  {
+    sender: "bot" as const,
+    text: "We handle end-to-end — readiness, evidence automation, and auditor coordination with CPA firms we partner with.",
+  },
+  { sender: "user" as const, text: "What does pricing typically look like?" },
+  {
+    sender: "bot" as const,
+    text: "Our engagement starts at ₹4.5L for readiness and evidence setup. Final pricing depends on scope and auditor choice.",
+  },
+  {
+    sender: "user" as const,
+    text: "That's reasonable. Can we see a proposal by next week?",
+  },
+  {
+    sender: "bot" as const,
+    text: "Absolutely. I'll need your work email and preferred slot for a 30-min scoping call. Which day works best?",
+  },
+  {
+    sender: "user" as const,
+    text: "Tuesday afternoon works. I'll share my email now.",
+  },
 ];
 
 const LiveChatCard: React.FC = () => {
@@ -242,19 +277,13 @@ const LiveChatCard: React.FC = () => {
       const messageAt = elapsed + 900; // 900ms "typing" pause
 
       // Show typing indicator (only for bot messages)
-      if (CHAT_SEQUENCE[i].sender === 'bot') {
-        timers.push(
-          setTimeout(() => setShowTyping(true), typingStart + 300)
-        );
-        timers.push(
-          setTimeout(() => setShowTyping(false), messageAt - 100)
-        );
+      if (CHAT_SEQUENCE[i].sender === "bot") {
+        timers.push(setTimeout(() => setShowTyping(true), typingStart + 300));
+        timers.push(setTimeout(() => setShowTyping(false), messageAt - 100));
       }
 
       // Reveal the message
-      timers.push(
-        setTimeout(() => setVisibleCount(i + 1), messageAt)
-      );
+      timers.push(setTimeout(() => setVisibleCount(i + 1), messageAt));
 
       // Advance the timeline
       elapsed = messageAt + 800;
@@ -267,7 +296,7 @@ const LiveChatCard: React.FC = () => {
         setVisibleCount(0);
         setShowTyping(false);
         setCycleKey((k) => k + 1); // remount for a clean slide-in on restart
-      }, elapsed + HOLD_AFTER_END)
+      }, elapsed + HOLD_AFTER_END),
     );
 
     return () => timers.forEach(clearTimeout);
@@ -291,7 +320,9 @@ const LiveChatCard: React.FC = () => {
             </div>
 
             <div>
-              <div className="text-sm font-semibold text-white">ThreatZen Expert</div>
+              <div className="text-sm font-semibold text-white">
+                ThreatZen Expert
+              </div>
               <div className="text-[11px] text-white/45 flex items-center gap-1.5">
                 <span className="w-1.5 h-1.5 rounded-full bg-brand animate-pulse" />
                 Online · Avg reply &lt; 2 min
@@ -330,11 +361,11 @@ const LiveChatCard: React.FC = () => {
                   <span className="w-1.5 h-1.5 rounded-full bg-white/40 animate-bounce" />
                   <span
                     className="w-1.5 h-1.5 rounded-full bg-white/40 animate-bounce"
-                    style={{ animationDelay: '0.15s' }}
+                    style={{ animationDelay: "0.15s" }}
                   />
                   <span
                     className="w-1.5 h-1.5 rounded-full bg-white/40 animate-bounce"
-                    style={{ animationDelay: '0.3s' }}
+                    style={{ animationDelay: "0.3s" }}
                   />
                 </div>
               </motion.div>
@@ -365,27 +396,27 @@ const LiveChatCard: React.FC = () => {
    ============================================================ */
 
 interface ChatBubbleProps {
-  sender: 'bot' | 'user';
+  sender: "bot" | "user";
   children: React.ReactNode;
 }
 
 const ChatBubble: React.FC<ChatBubbleProps> = ({ sender, children }) => {
-  const isBot = sender === 'bot';
+  const isBot = sender === "bot";
   return (
     <motion.div
       layout
       initial={{ opacity: 0, y: 12, scale: 0.94 }}
       animate={{ opacity: 1, y: 0, scale: 1 }}
       transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
-      className={`flex ${isBot ? 'justify-start' : 'justify-end'}`}
+      className={`flex ${isBot ? "justify-start" : "justify-end"}`}
     >
       <div
         className={`
           max-w-[85%] px-3.5 py-2.5 rounded-2xl text-xs leading-relaxed
           ${
             isBot
-              ? 'bg-white/[0.06] border border-white/10 text-white/80 rounded-tl-sm'
-              : 'bg-brand text-navy-deep font-medium rounded-tr-sm'
+              ? "bg-white/[0.06] border border-white/10 text-white/80 rounded-tl-sm"
+              : "bg-brand text-navy-deep font-medium rounded-tr-sm"
           }
         `}
       >

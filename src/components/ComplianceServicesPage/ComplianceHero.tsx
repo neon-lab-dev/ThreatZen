@@ -287,12 +287,16 @@ const ComplianceHero: React.FC = () => {
               }}
               className="flex flex-wrap items-center justify-center gap-4 mb-16"
             >
+              <a href="/services">
               <MagneticButton variant="primary">
                 Explore Our Solutions
               </MagneticButton>
-              <MagneticButton variant="secondary">
+              </a>
+              <a href="/contact">
+                <MagneticButton variant="secondary">
                 Book Your Free Demo
               </MagneticButton>
+              </a>
             </motion.div>
 
             {/* ===== Stats Row ===== */}
@@ -371,7 +375,7 @@ interface MagneticButtonProps {
   variant?: "primary" | "secondary";
 }
 
-const MagneticButton: React.FC<MagneticButtonProps> = ({
+export const MagneticButton: React.FC<MagneticButtonProps> = ({
   children,
   variant = "primary",
 }) => {
@@ -412,11 +416,11 @@ const MagneticButton: React.FC<MagneticButtonProps> = ({
       style={{ x: sx, y: sy }}
       whileTap={{ scale: 0.97 }}
       type="button"
-      className={`${base} ${styles}`}
+      className={`${base} ${styles} cursor-pointer`}
     >
       {/* Shine sweep on primary */}
       {variant === "primary" && (
-        <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/30 to-transparent group-hover:translate-x-full transition-transform duration-700 ease-out" />
+        <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/30 to-transparent group-hover:translate-x-full transition-transform duration-700 ease-out cursor-pointer" />
       )}
       <span className="relative">{children}</span>
       {variant === "primary" ? (
