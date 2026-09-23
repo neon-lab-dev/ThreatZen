@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/set-state-in-effect */
 // components/AddBlogPage/ImageUploader.tsx
 import React, { useEffect, useRef, useState } from 'react';
 
@@ -5,24 +6,39 @@ const MAX_SIZE_MB = 5;
 const ACCEPTED = ['image/jpeg', 'image/png', 'image/webp', 'image/gif'];
 
 interface ImageUploaderProps {
-  /** Called whenever a file is selected or cleared. `null` means removed. */
+  /** Called when a file is chosen or cleared. `null` means "no new file". */
   onFileChange: (file: File | null) => void;
+  /** Optional: existing image URL (from the server) to show as the initial preview */
+  initialUrl?: string;
+  /** Optional: called when the user removes the currently displayed image */
+  onRemove?: () => void;
   onError?: (message: string) => void;
 }
 
 const ImageUploader: React.FC<ImageUploaderProps> = ({
   onFileChange,
+  initialUrl,
+  onRemove,
   onError,
 }) => {
   const inputRef = useRef<HTMLInputElement>(null);
   const [isDragging, setIsDragging] = useState(false);
   const [file, setFile] = useState<File | null>(null);
-  const [preview, setPreview] = useState<string | null>(null);
+  const [preview, setPreview] = useState<string | null>(initialUrl ?? null);
 
-  // Cleanup the object URL on unmount
+  // Sync external initialUrl changes (e.g. after fetch)
+  useEffect(() => {
+    if (initialUrl && !file) {
+      setPreview(initialUrl);
+    }
+  }, [initialUrl, file]);
+
+  // Cleanup object URLs
   useEffect(() => {
     return () => {
-      if (preview) URL.revokeObjectURL(preview);
+      if (preview && preview.startsWith('blob:')) {
+        URL.revokeObjectURL(preview);
+      }
     };
   }, [preview]);
 
@@ -36,8 +52,7 @@ const ImageUploader: React.FC<ImageUploaderProps> = ({
       return;
     }
 
-    // Revoke previous preview
-    if (preview) URL.revokeObjectURL(preview);
+    if (preview?.startsWith('blob:')) URL.revokeObjectURL(preview);
 
     const localUrl = URL.createObjectURL(incoming);
     setFile(incoming);
@@ -46,10 +61,11 @@ const ImageUploader: React.FC<ImageUploaderProps> = ({
   };
 
   const handleRemove = () => {
-    if (preview) URL.revokeObjectURL(preview);
+    if (preview?.startsWith('blob:')) URL.revokeObjectURL(preview);
     setFile(null);
     setPreview(null);
     onFileChange(null);
+    onRemove?.();
     if (inputRef.current) inputRef.current.value = '';
   };
 
@@ -133,11 +149,11 @@ const ImageUploader: React.FC<ImageUploaderProps> = ({
             </button>
           </div>
 
-          {/* File meta strip */}
           {file && (
             <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/60 to-transparent px-4 py-3">
               <p className="text-[11px] text-white/90 truncate">
                 {file.name} · {(file.size / 1024 / 1024).toFixed(2)} MB
+                <span className="ml-2 text-brand">· New</span>
               </p>
             </div>
           )}

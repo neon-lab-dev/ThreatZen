@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 // lib/blogApi.ts
 import axios from 'axios';
 
@@ -31,7 +32,7 @@ export interface AddBlogRequest {
   shortDescription: string;
   readTime: string;
   content: string;
-  tags?: string[]; 
+  tags?: string[];
 }
 
 export interface AddBlogResponse {
@@ -165,4 +166,45 @@ export const blogApi = {
 
     return data;
   },
+
+  /**
+ * Update an existing blog post.
+ * PATCH /api/v1/blog/update/:id  (multipart/form-data)
+ */
+  async updateBlog(payload: any): Promise<any> {
+    const formData = new FormData();
+    formData.append('title', payload.title);
+    formData.append('slug', payload.slug);
+    formData.append('category', payload.category);
+    formData.append('shortDescription', payload.shortDescription);
+    formData.append('readTime', payload.readTime);
+    formData.append('content', payload.content);
+
+    if (payload.tags) {
+      payload.tags.forEach((tag: string) => formData.append('tags', tag));
+    }
+
+    // Only send a new file if one was picked
+    if (payload.imageFile) {
+      formData.append('file', payload.imageFile);
+    }
+
+    const { data } = await http.put<any>(
+      `/api/v1/blog/update/${payload.id}`,
+      formData,
+      { headers: { 'Content-Type': 'multipart/form-data' } }
+    );
+
+    return data;
+  },
+
+
+  async deleteBlog(id: string): Promise<any> {
+    const { data } = await http.delete<any>(
+      `/api/v1/blog/delete/${encodeURIComponent(id)}`
+    );
+
+    return data;
+  },
+
 };

@@ -53,7 +53,7 @@ const BlogCard: React.FC<BlogCardProps> = ({
   }
 
   return (
-    <a href={`/blog/${slug}`} className="group bg-[var(--card)] rounded-2xl border border-muted overflow-hidden hover:border-[var(--brand)]/30 hover:shadow-lg hover:shadow-navy/5 transition-all duration-300 flex flex-col cursor-pointer">
+    <a href={`/blog/${slug}`} className="group bg-[var(--card)] rounded-2xl border border-muted overflow-hidden hover:border-[var(--brand)]/30 shadow-lg hover:shadow-navy/5 transition-all duration-300 flex flex-col cursor-pointer">
       {/* Image */}
       <div className="aspect-[16/9] bg-[var(--surface)] relative overflow-hidden">
         <img

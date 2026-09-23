@@ -15,6 +15,8 @@ import BlogDetails from "../pages/BlogDetails";
 import AddBlog from "../pages/AddBlog";
 import ComplianceServices from "../pages/ComplianceServices";
 import SecurityServices from "../pages/SecurityServices";
+import DashboardLayout from "../layouts/DashboardLayout/DashboardLayout";
+import BlogManagement from "../pages/AdminDashboardPages/BlogManagement";
 
 export const router = createBrowserRouter([
   {
@@ -70,10 +72,7 @@ export const router = createBrowserRouter([
         path: "/blog/:slug",
         element: <BlogDetails />,
       },
-      {
-        path: "/add/blog",
-        element: <AddBlog />,
-      },
+      
       {
         path: "/compliance-services",
         element: <ComplianceServices />,
@@ -81,6 +80,25 @@ export const router = createBrowserRouter([
       {
         path: "/security-services",
         element: <SecurityServices />,
+      },
+    ],
+  },
+  {
+    path: "/admin/management/",
+    element: <DashboardLayout />,
+    // errorElement: <NotFound />,
+    children: [
+      {
+        path: "blogs",
+        element: <BlogManagement />,
+      },
+      {
+        path: "blog/add",
+        element: <AddBlog />,
+      },
+      {
+        path: "blog/edit/:slug",
+        element: <AddBlog />,
       },
     ],
   },

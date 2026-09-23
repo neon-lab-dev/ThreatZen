@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/set-state-in-effect */
 // pages/BlogDetails.tsx
 import React, { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';

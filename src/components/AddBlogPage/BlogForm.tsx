@@ -1,11 +1,14 @@
-import React, { useMemo, useState } from "react";
+/* eslint-disable react-hooks/set-state-in-effect */
+// components/AddBlogPage/BlogForm.tsx
+import React, { useEffect, useMemo, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { toast } from "sonner";
-import { CheckCircle2, AlertCircle } from "lucide-react";
+import { CheckCircle2, AlertCircle, Loader2 } from "lucide-react";
 import FormField from "./FormField";
 import ImageUploader from "./ImageUploader";
 import RichTextEditor from "./RichTextEditor";
 import TagsInput from "./TagsInput";
-import { blogApi, slugify } from "../../lib/blogApi";
+import { blogApi, slugify, type Blog } from "../../lib/blogApi";
 
 const READ_TIMES = [
   "3 min read",
@@ -26,6 +29,8 @@ interface FormState {
   content: string;
   imageFile: File | null;
   tags: string[];
+  /** URL of the existing image when editing (empty when creating) */
+  existingImageUrl: string;
 }
 
 const initialState: FormState = {
@@ -36,6 +41,7 @@ const initialState: FormState = {
   content: "",
   imageFile: null,
   tags: [],
+  existingImageUrl: "",
 };
 
 interface FormErrors {
@@ -48,13 +54,69 @@ interface FormErrors {
   tags?: string;
 }
 
-const BlogForm: React.FC = () => {
+interface BlogFormProps {
+  /** If provided, the form runs in EDIT mode */
+  slug?: string;
+}
+
+const BlogForm: React.FC<BlogFormProps> = ({ slug }) => {
+  const navigate = useNavigate();
+  const isEditMode = Boolean(slug);
+
   const [form, setForm] = useState<FormState>(initialState);
   const [errors, setErrors] = useState<FormErrors>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
 
+  const [isFetching, setIsFetching] = useState(isEditMode);
+  const [fetchError, setFetchError] = useState<string | null>(null);
+  const [blogId, setBlogId] = useState<string | null>(null);
+
+  /* ===== Slug preview (from title) ===== */
   const slugPreview = useMemo(() => slugify(form.title), [form.title]);
+
+  /* ===== Load existing blog when editing ===== */
+  useEffect(() => {
+    if (!slug) return;
+
+    let cancelled = false;
+    setIsFetching(true);
+    setFetchError(null);
+
+    (async () => {
+      try {
+        const res = await blogApi.getBlogBySlug(slug);
+        if (cancelled) return;
+
+        const blog: Blog = res.data;
+
+        setBlogId(blog._id ?? blog.id ?? null);
+        setForm({
+          title: blog.title ?? "",
+          shortDescription: blog.shortDescription ?? "",
+          category: blog.category ?? "",
+          readTime: blog.readTime ?? "",
+          content: blog.content ?? "",
+          imageFile: null,
+          tags: blog.tags ?? [],
+          existingImageUrl: blog.imageUrl ?? "",
+        });
+      } catch (err) {
+        console.error(err);
+        if (!cancelled) {
+          setFetchError(
+            "Failed to load this blog. It may have been removed or the link is invalid."
+          );
+        }
+      } finally {
+        if (!cancelled) setIsFetching(false);
+      }
+    })();
+
+    return () => {
+      cancelled = true;
+    };
+  }, [slug]);
 
   const update = <K extends keyof FormState>(key: K, value: FormState[K]) => {
     setForm((f) => ({ ...f, [key]: value }));
@@ -78,9 +140,12 @@ const BlogForm: React.FC = () => {
 
     if (!form.category) next.category = "Please choose a category.";
     if (!form.readTime) next.readTime = "Please choose a read time.";
-    if (!form.imageFile) next.imageFile = "Featured image is required.";
 
-    // Tags: require at least 1                                // ← ADD
+    // Image required only in create mode; in edit mode an existing image is fine
+    if (!form.imageFile && !form.existingImageUrl) {
+      next.imageFile = "Featured image is required.";
+    }
+
     if (form.tags.length === 0) next.tags = "Please add at least one tag.";
 
     const stripped = form.content.replace(/<[^>]*>/g, "").trim();
@@ -92,7 +157,7 @@ const BlogForm: React.FC = () => {
     return Object.keys(next).length === 0;
   };
 
-  /* ===== Submit ===== */
+  /* ===== Submit (create or update) ===== */
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!validate()) {
@@ -100,37 +165,62 @@ const BlogForm: React.FC = () => {
       return;
     }
 
-    if (!form.imageFile) return;
-
     setIsSubmitting(true);
 
     try {
-      const res = await blogApi.addBlog({
-        imageFile: form.imageFile,
-        title: form.title.trim(),
-        slug: slugPreview,
-        category: form.category,
-        shortDescription: form.shortDescription.trim(),
-        readTime: form.readTime,
-        content: form.content,
-        tags: form.tags, // ← ADD
-      });
+      if (isEditMode) {
+        if (!blogId) throw new Error("Missing blog ID — cannot update.");
 
-      const ok = res?.success !== false;
-      if (!ok) throw new Error(res?.message || "Failed to publish blog.");
+        const res = await blogApi.updateBlog({
+          id: blogId,
+          imageFile: form.imageFile,
+          title: form.title.trim(),
+          slug: slugPreview,
+          category: form.category,
+          shortDescription: form.shortDescription.trim(),
+          readTime: form.readTime,
+          content: form.content,
+          tags: form.tags,
+        });
 
-      toast.success("Blog published successfully!");
-      setSubmitted(true);
+        const ok = res?.success !== false;
+        if (!ok) throw new Error(res?.message || "Failed to update blog.");
+
+        toast.success("Blog updated successfully!");
+        setSubmitted(true);
+
+        setTimeout(() => navigate("/admin/management/blogs"), 900);
+      } else {
+        if (!form.imageFile) return;
+
+        const res = await blogApi.addBlog({
+          imageFile: form.imageFile,
+          title: form.title.trim(),
+          slug: slugPreview,
+          category: form.category,
+          shortDescription: form.shortDescription.trim(),
+          readTime: form.readTime,
+          content: form.content,
+          tags: form.tags,
+        });
+
+        const ok = res?.success !== false;
+        if (!ok) throw new Error(res?.message || "Failed to publish blog.");
+
+        toast.success("Blog published successfully!");
+        setSubmitted(true);
+
+        setTimeout(() => navigate("/admin/management/blogs"), 900);
+      }
     } catch (err) {
       console.error(err);
-
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       const axiosMsg = (err as any)?.response?.data?.message;
       toast.error(
         axiosMsg ||
           (err instanceof Error
             ? err.message
-            : "Something went wrong. Please try again."),
+            : "Something went wrong. Please try again.")
       );
     } finally {
       setIsSubmitting(false);
@@ -138,10 +228,46 @@ const BlogForm: React.FC = () => {
   };
 
   const handleReset = () => {
+    if (isEditMode) {
+      // On edit, "reset" doesn't clear the form — it's safer to just blur / reload.
+      // Simple approach: reload the page to re-fetch original values.
+      window.location.reload();
+      return;
+    }
     setForm(initialState);
     setErrors({});
     setSubmitted(false);
   };
+
+  /* ===== Loading state for edit ===== */
+  if (isFetching) {
+    return (
+      <div className="flex flex-col items-center justify-center py-24 gap-4">
+        <Loader2 className="w-8 h-8 animate-spin text-brand" />
+        <p className="text-sm text-muted-foreground">Loading blog…</p>
+      </div>
+    );
+  }
+
+  /* ===== Fetch error ===== */
+  if (fetchError) {
+    return (
+      <div className="rounded-3xl border border-red-200 bg-red-50 p-8 text-center max-w-lg mx-auto">
+        <AlertCircle className="w-10 h-10 text-red-500 mx-auto mb-4" />
+        <h2 className="text-lg font-semibold text-red-700 mb-2">
+          Could not load blog
+        </h2>
+        <p className="text-sm text-red-600 mb-6">{fetchError}</p>
+        <button
+          type="button"
+          onClick={() => navigate("/dashboard/blogs")}
+          className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-navy text-white text-sm font-semibold hover:bg-navy-deep transition-colors"
+        >
+          Back to Blogs
+        </button>
+      </div>
+    );
+  }
 
   return (
     <form onSubmit={handleSubmit} className="space-y-8">
@@ -167,6 +293,18 @@ const BlogForm: React.FC = () => {
             error={errors.title}
             hint="Use a clear, descriptive title — max 120 characters recommended."
           />
+
+          {slugPreview && (
+            <div className="rounded-xl bg-surface border border-muted px-4 py-3">
+              <p className="text-[11px] font-semibold uppercase tracking-wider text-muted-foreground mb-1">
+                URL Slug {isEditMode ? "(updated on save)" : "(auto-generated)"}
+              </p>
+              <p className="text-sm font-mono text-foreground break-all">
+                /blog/<span className="text-brand">{slugPreview}</span>
+              </p>
+            </div>
+          )}
+
           <FormField
             label="Short Description"
             name="shortDescription"
@@ -179,18 +317,18 @@ const BlogForm: React.FC = () => {
             error={errors.shortDescription}
             hint={`${form.shortDescription.length}/220 characters`}
           />
+
           <div className="grid sm:grid-cols-2 gap-5">
             <FormField
               label="Category"
               name="category"
               value={form.category}
               onChange={(v) => update("category", v)}
-              placeholder="e.g. Security, Productivity, etc."
+              placeholder="e.g. Threat Intelligence"
               required
               error={errors.category}
             />
 
-            {/* Read Time */}
             <div>
               <label
                 htmlFor="readTime"
@@ -224,7 +362,7 @@ const BlogForm: React.FC = () => {
               )}
             </div>
           </div>
-          {/* Tags — full width below category/readTime */} {/* ← ADD */}
+
           <TagsInput
             label="Tags"
             value={form.tags}
@@ -245,12 +383,16 @@ const BlogForm: React.FC = () => {
             Featured image
           </h2>
           <p className="text-sm text-muted-foreground mt-1">
-            This image will be shown on the blog card and the article header.
+            {isEditMode
+              ? "Leave as-is to keep the current image, or replace it."
+              : "This image will be shown on the blog card and the article header."}
           </p>
         </div>
 
         <ImageUploader
           onFileChange={(file) => update("imageFile", file)}
+          initialUrl={form.existingImageUrl}
+          onRemove={() => update("existingImageUrl", "")}
           onError={(msg) => toast.error(msg)}
         />
         {errors.imageFile && (
@@ -283,13 +425,17 @@ const BlogForm: React.FC = () => {
               <>
                 <CheckCircle2 className="w-4 h-4 text-brand" />
                 <span className="text-brand font-medium">
-                  Blog published — redirecting…
+                  {isEditMode ? "Blog updated" : "Blog published"} — redirecting…
                 </span>
               </>
             ) : (
               <>
                 <AlertCircle className="w-4 h-4" />
-                <span>Fill all required fields, then publish.</span>
+                <span>
+                  {isEditMode
+                    ? "Edit the fields and save your changes."
+                    : "Fill all required fields, then publish."}
+                </span>
               </>
             )}
           </div>
@@ -301,7 +447,7 @@ const BlogForm: React.FC = () => {
               disabled={isSubmitting}
               className="px-5 py-2.5 rounded-xl text-sm font-semibold text-muted-foreground hover:text-foreground hover:bg-surface transition-colors disabled:opacity-50"
             >
-              Reset
+              {isEditMode ? "Discard changes" : "Reset"}
             </button>
 
             <button
@@ -330,13 +476,15 @@ const BlogForm: React.FC = () => {
                       d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"
                     />
                   </svg>
-                  Publishing…
+                  {isEditMode ? "Saving…" : "Publishing…"}
                 </>
               ) : submitted ? (
                 <>
                   <CheckCircle2 className="w-4 h-4" />
-                  Published
+                  {isEditMode ? "Saved" : "Published"}
                 </>
+              ) : isEditMode ? (
+                "Save Changes"
               ) : (
                 "Publish Blog"
               )}

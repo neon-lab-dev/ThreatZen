@@ -1,4 +1,4 @@
-import { CaseStudies } from "../components/site/CaseStudies";
+// import { CaseStudies } from "../components/site/CaseStudies";
 import { Clients } from "../components/site/Clients";
 import { Compliance } from "../components/site/Compliance";
 import { CTA } from "../components/site/CTA";
@@ -18,7 +18,7 @@ const Home = () => {
         <Stats />
         <Partners />
         <Compliance />
-        <CaseStudies />
+        {/* <CaseStudies /> */}
         <Clients />
         <CTA />
       </main>
