@@ -10,11 +10,13 @@ import logo from "../../assets/threatzen-logo.png";
 
 const columns = [
   {
-    title: "ThreatZen",
+    title: "Important Links",
     links: [
-      { label: "About", to: "/about" },
-      { label: "Case Studies", to: "/case-studies" },
+      { label: "About Us", to: "/about" },
+      { label: "Blogs", to: "/blogs" },
       { label: "Contact", to: "/contact" },
+      { label: "Compliance Services", to: "/compliance-services" },
+      { label: "Security Services", to: "/security-services" },
     ],
   },
   {
@@ -31,9 +33,15 @@ const columns = [
     title: "Industries",
     links: [
       { label: "Banking", to: "/industries" },
+      { label: "NBFC", to: "/industries" },
+      { label: "Stock Broking", to: "/industries" },
       { label: "FinTech", to: "/industries" },
       { label: "Healthcare", to: "/industries" },
       { label: "Manufacturing", to: "/industries" },
+      { label: "Retail", to: "/industries" },
+      { label: "Education", to: "/industries" },
+      { label: "Government", to: "/industries" },
+      { label: "Technology", to: "/industries" },
     ],
   },
   // {

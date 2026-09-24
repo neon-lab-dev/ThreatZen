@@ -75,7 +75,7 @@ export function Header() {
             <div className="bg-white/95 dark:bg-white/95 rounded-lg px-2 py-1 shadow-sm">
               <img src={logo} alt="ThreatZen™" className="h-7 lg:h-8 w-auto" />
             </div>
-            <div className="hidden sm:flex flex-col leading-tight">
+            <div className="flex flex-col leading-tight">
               <span className={`font-display font-semibold text-sm ${getTextColor()}`}>
                 ThreatZen<sup className="text-[0.55em] ml-0.5 font-semibold">™</sup>
               </span>

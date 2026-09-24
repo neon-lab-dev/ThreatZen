@@ -192,16 +192,8 @@ export function Hero() {
                 <span className="absolute inline-flex h-full w-full rounded-full bg-brand opacity-60 animate-ping" />
                 <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-brand" />
               </span>
-              <span className="text-[10px] sm:text-xs font-semibold tracking-[0.14em] sm:tracking-[0.18em] text-white/90 whitespace-nowrap">
-                Threat<span className="text-brand">Z</span>en
-                <sup className="relative -top-1 -ml-0.5 text-[0.65em]">™</sup>
-                — Cybersecurity, Compliance & Technology
-              </span>
-              <span className="hidden xs:inline text-white/40 text-[10px] sm:text-xs">
-                ·
-              </span>
-              <span className="hidden xs:inline text-[10px] sm:text-xs font-semibold tracking-[0.14em] sm:tracking-[0.18em] text-white/70 whitespace-nowrap">
-                Cyber Resilience
+              <span className="text-[10px] sm:text-xs font-semibold tracking-[0.14em] sm:tracking-[0.18em] text-white/90">
+                Cybersecurity, Compliance & Technology
               </span>
             </motion.div>
 
