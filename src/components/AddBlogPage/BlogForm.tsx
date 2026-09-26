@@ -1,6 +1,5 @@
 /* eslint-disable react-hooks/set-state-in-effect */
-// components/AddBlogPage/BlogForm.tsx
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "sonner";
 import { CheckCircle2, AlertCircle, Loader2 } from "lucide-react";
@@ -8,7 +7,7 @@ import FormField from "./FormField";
 import ImageUploader from "./ImageUploader";
 import RichTextEditor from "./RichTextEditor";
 import TagsInput from "./TagsInput";
-import { blogApi, slugify, type Blog } from "../../lib/blogApi";
+import { blogApi, type Blog } from "../../lib/blogApi";
 
 const READ_TIMES = [
   "3 min read",
@@ -29,7 +28,7 @@ interface FormState {
   content: string;
   imageFile: File | null;
   tags: string[];
-  /** URL of the existing image when editing (empty when creating) */
+  slug?: string;
   existingImageUrl: string;
 }
 
@@ -40,6 +39,7 @@ const initialState: FormState = {
   readTime: "",
   content: "",
   imageFile: null,
+  slug: "",
   tags: [],
   existingImageUrl: "",
 };
@@ -52,6 +52,7 @@ interface FormErrors {
   content?: string;
   imageFile?: string;
   tags?: string;
+  slug?: string;
 }
 
 interface BlogFormProps {
@@ -71,9 +72,6 @@ const BlogForm: React.FC<BlogFormProps> = ({ slug }) => {
   const [isFetching, setIsFetching] = useState(isEditMode);
   const [fetchError, setFetchError] = useState<string | null>(null);
   const [blogId, setBlogId] = useState<string | null>(null);
-
-  /* ===== Slug preview (from title) ===== */
-  const slugPreview = useMemo(() => slugify(form.title), [form.title]);
 
   /* ===== Load existing blog when editing ===== */
   useEffect(() => {
@@ -98,6 +96,7 @@ const BlogForm: React.FC<BlogFormProps> = ({ slug }) => {
           readTime: blog.readTime ?? "",
           content: blog.content ?? "",
           imageFile: null,
+          slug: blog.slug ?? "",
           tags: blog.tags ?? [],
           existingImageUrl: blog.imageUrl ?? "",
         });
@@ -105,7 +104,7 @@ const BlogForm: React.FC<BlogFormProps> = ({ slug }) => {
         console.error(err);
         if (!cancelled) {
           setFetchError(
-            "Failed to load this blog. It may have been removed or the link is invalid."
+            "Failed to load this blog. It may have been removed or the link is invalid.",
           );
         }
       } finally {
@@ -146,6 +145,8 @@ const BlogForm: React.FC<BlogFormProps> = ({ slug }) => {
       next.imageFile = "Featured image is required.";
     }
 
+    if (!form.slug) next.slug = "Please choose a slug.";
+
     if (form.tags.length === 0) next.tags = "Please add at least one tag.";
 
     const stripped = form.content.replace(/<[^>]*>/g, "").trim();
@@ -175,11 +176,11 @@ const BlogForm: React.FC<BlogFormProps> = ({ slug }) => {
           id: blogId,
           imageFile: form.imageFile,
           title: form.title.trim(),
-          slug: slugPreview,
           category: form.category,
           shortDescription: form.shortDescription.trim(),
           readTime: form.readTime,
           content: form.content,
+          slug: form.slug ?? "",
           tags: form.tags,
         });
 
@@ -196,7 +197,7 @@ const BlogForm: React.FC<BlogFormProps> = ({ slug }) => {
         const res = await blogApi.addBlog({
           imageFile: form.imageFile,
           title: form.title.trim(),
-          slug: slugPreview,
+          slug: form.slug ?? "",
           category: form.category,
           shortDescription: form.shortDescription.trim(),
           readTime: form.readTime,
@@ -220,7 +221,7 @@ const BlogForm: React.FC<BlogFormProps> = ({ slug }) => {
         axiosMsg ||
           (err instanceof Error
             ? err.message
-            : "Something went wrong. Please try again.")
+            : "Something went wrong. Please try again."),
       );
     } finally {
       setIsSubmitting(false);
@@ -294,16 +295,15 @@ const BlogForm: React.FC<BlogFormProps> = ({ slug }) => {
             hint="Use a clear, descriptive title — max 120 characters recommended."
           />
 
-          {slugPreview && (
-            <div className="rounded-xl bg-surface border border-muted px-4 py-3">
-              <p className="text-[11px] font-semibold uppercase tracking-wider text-muted-foreground mb-1">
-                URL Slug {isEditMode ? "(updated on save)" : "(auto-generated)"}
-              </p>
-              <p className="text-sm font-mono text-foreground break-all">
-                /blog/<span className="text-brand">{slugPreview}</span>
-              </p>
-            </div>
-          )}
+          <FormField
+            label="Slug"
+            name="slug"
+            value={form.slug || ""}
+            onChange={(v) => update("slug", v)}
+            placeholder="e.g. the-2025-ransomware-playbook"
+            required
+            error={errors.slug}
+          />
 
           <FormField
             label="Short Description"
@@ -425,7 +425,8 @@ const BlogForm: React.FC<BlogFormProps> = ({ slug }) => {
               <>
                 <CheckCircle2 className="w-4 h-4 text-brand" />
                 <span className="text-brand font-medium">
-                  {isEditMode ? "Blog updated" : "Blog published"} — redirecting…
+                  {isEditMode ? "Blog updated" : "Blog published"} —
+                  redirecting…
                 </span>
               </>
             ) : (
