@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { CheckCircle2, Shield, Target, LineChart, Users, Award, TrendingUp } from "lucide-react";
+import { Helmet } from 'react-helmet-async';
 
 const stats = [
   { value: "98%", label: "Client Retention Rate", icon: Users },
@@ -37,6 +38,15 @@ const certifications = [
 
 export function About() {
   return (
+   <>
+    <Helmet>
+            <title>About ThreatZen | Certified Cyber Resilience Partner</title>
+            <meta
+              name="description"
+              content="Meet ThreatZen: CISSP, CISA & ISO 27001 certified experts delivering pentesting, vCISO, and compliance across banking, fintech, and healthcare in India."
+            />
+            <link rel="canonical" href="https://www.threatzen.in/about" />
+          </Helmet>
     <section className="py-24 lg:py-32 bg-gradient-to-b from-background to-muted/20">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Header with stronger positioning */}
@@ -181,5 +191,6 @@ export function About() {
         </div>
       </div>
     </section>
+   </>
   );
 }

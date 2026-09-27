@@ -1,14 +1,9 @@
 import { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
 import { motion } from "framer-motion";
-import {
-  Mail,
-  Phone,
-  MapPin,
-  Send,
-  ShieldCheck,
-} from "lucide-react";
+import { Mail, Phone, MapPin, Send, ShieldCheck } from "lucide-react";
 import { toast } from "sonner";
+import { Helmet } from "react-helmet-async";
 
 export function Contact() {
   const formRef = useRef<HTMLFormElement>(null);
@@ -28,15 +23,12 @@ export function Contact() {
         "service_tfqh8ew",
         "template_9t2ruug",
         formRef.current,
-        "UuFXPNlRPwWZmUjEA"
+        "UuFXPNlRPwWZmUjEA",
       );
 
-      toast.success(
-        "Thanks for your interest. We will contact you shortly!",
-        {
-          duration: 3000,
-        }
-      );
+      toast.success("Thanks for your interest. We will contact you shortly!", {
+        duration: 3000,
+      });
 
       setSent(true);
       formRef.current.reset();
@@ -50,6 +42,14 @@ export function Contact() {
 
   return (
     <section id="contact" className="py-24 lg:py-32 bg-surface">
+      <Helmet>
+        <title>Contact ThreatZen | Book a Free Security Consultation</title>
+        <meta
+          name="description"
+          content="Talk to ThreatZen's certified cybersecurity experts. Book a free risk consultation for VAPT, compliance, vCISO & managed security across India."
+        />
+        <link rel="canonical" href="https://www.threatzen.in/contact" />
+      </Helmet>
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-12">
         {/* Left Side */}
         <motion.div
@@ -62,16 +62,12 @@ export function Contact() {
           </p>
 
           <h2 className="mt-3 text-3xl sm:text-4xl lg:text-5xl font-bold capitalize">
-            Let's{" "}
-            <span className="text-brand">
-              secure
-            </span>{" "}
-            what matters
+            Let's <span className="text-brand">secure</span> what matters
           </h2>
 
           <p className="mt-5 text-muted-foreground text-lg">
-            Tell us about your security goals. A senior consultant will get
-            back within one business day.
+            Tell us about your security goals. A senior consultant will get back
+            within one business day.
           </p>
 
           <div className="mt-10 space-y-5">
@@ -93,10 +89,7 @@ export function Contact() {
                   "No: 1190/1, FD 94, 4th Floor, HSR Layout, Sector 3, 22nd Cross Road, Bengaluru 560102, Karnataka.",
               },
             ].map((c) => (
-              <div
-                key={c.label}
-                className="flex items-start gap-4"
-              >
+              <div key={c.label} className="flex items-start gap-4">
                 <div className="size-11 rounded-xl bg-[var(--brand)]/10 text-brand grid place-items-center shrink-0">
                   <c.icon className="size-5" />
                 </div>
@@ -106,9 +99,7 @@ export function Contact() {
                     {c.label}
                   </p>
 
-                  <p className="font-semibold">
-                    {c.value}
-                  </p>
+                  <p className="font-semibold">{c.value}</p>
                 </div>
               </div>
             ))}
@@ -125,28 +116,13 @@ export function Contact() {
           className="rounded-3xl bg-card border border-border p-8 shadow-elegant"
         >
           <div className="grid sm:grid-cols-2 gap-4">
-            <Field
-              label="Name"
-              name="name"
-              required
-            />
+            <Field label="Name" name="name" required />
 
-            <Field
-              label="Company"
-              name="company"
-            />
+            <Field label="Company" name="company" />
 
-            <Field
-              label="Email"
-              name="email"
-              type="email"
-              required
-            />
+            <Field label="Email" name="email" type="email" required />
 
-            <Field
-              label="Phone"
-              name="phone"
-            />
+            <Field label="Phone" name="phone" />
           </div>
 
           <div className="mt-4">
@@ -159,27 +135,13 @@ export function Contact() {
               required
               className="mt-1.5 w-full rounded-xl bg-background border border-input px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[var(--brand)]/40 focus:border-[var(--brand)]"
             >
-              <option value="">
-                Select a Service
-              </option>
-              <option value="VAPT">
-                VAPT
-              </option>
-              <option value="Cloud Security">
-                Cloud Security
-              </option>
-              <option value="Compliance Audit">
-                Compliance Audit
-              </option>
-              <option value="SOC Services">
-                SOC Services
-              </option>
-              <option value="Consulting">
-                Consulting
-              </option>
-              <option value="Other">
-                Other
-              </option>
+              <option value="">Select a Service</option>
+              <option value="VAPT">VAPT</option>
+              <option value="Cloud Security">Cloud Security</option>
+              <option value="Compliance Audit">Compliance Audit</option>
+              <option value="SOC Services">SOC Services</option>
+              <option value="Consulting">Consulting</option>
+              <option value="Other">Other</option>
             </select>
           </div>
 
@@ -233,12 +195,7 @@ type FieldProps = {
   required?: boolean;
 };
 
-function Field({
-  label,
-  name,
-  type = "text",
-  required = false,
-}: FieldProps) {
+function Field({ label, name, type = "text", required = false }: FieldProps) {
   return (
     <div>
       <label
@@ -246,12 +203,7 @@ function Field({
         className="text-xs font-semibold uppercase tracking-wider text-muted-foreground"
       >
         {label}
-        {required && (
-          <span className="text-brand">
-            {" "}
-            *
-          </span>
-        )}
+        {required && <span className="text-brand"> *</span>}
       </label>
 
       <input

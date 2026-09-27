@@ -1,6 +1,17 @@
+import { Helmet } from "react-helmet-async";
+
 const TermsAndConditions = () => {
   return (
     <div className="min-h-screen bg-background">
+      <Helmet>
+        <title>Terms & Conditions | ThreatZen</title>
+        <meta
+          name="description"
+          content="Read ThreatZen's Terms & Conditions governing the use of our cybersecurity services, website, and platforms. Effective January 1, 2026."
+        />
+        <link rel="canonical" href="https://www.threatzen.in/terms-and-conditions" />
+        <meta name="robots" content="noindex, follow" />
+      </Helmet>
       <main className="pt-32 pb-24">
         <article className="mx-auto max-w-4xl px-4 sm:px-6 prose prose-slate prose-lg">
           <h1 className="text-4xl font-bold tracking-tight">
@@ -18,7 +29,7 @@ const TermsAndConditions = () => {
             </h2>
             <p className="mt-2">
               By accessing or using the ThreatZen™ website (
-              <strong className="text-foreground">www.threatzen.com</strong>),
+              <strong className="text-foreground">www.threatzen.in</strong>),
               services, applications, or platforms (collectively, the "
               <strong>Services</strong>"), you agree to be bound by these Terms
               & Conditions ("<strong>Terms</strong>"). If you do not agree,

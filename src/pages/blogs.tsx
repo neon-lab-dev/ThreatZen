@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Helmet } from "react-helmet-async";
 import BlogHero from "../components/BlogPage/BlogHero";
 import BlogGrid from "../components/BlogPage/BlogGrid";
 
@@ -7,6 +8,15 @@ const Blogs: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <Helmet>
+        <title>Cybersecurity Blog & Insights | ThreatZen</title>
+        <meta
+          name="description"
+          content="Expert insights on VAPT, ISO 27001, SOC 2, GDPR, DPDP & managed security from ThreatZen. Stay ahead of cyber threats with guides for Indian enterprises."
+        />
+        <link rel="canonical" href="https://www.threatzen.in/blogs" />
+      </Helmet>
+
       <BlogHero />
 
       <div

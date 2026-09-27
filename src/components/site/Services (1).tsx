@@ -16,6 +16,7 @@ import {
   Activity,
   UserCheck,
 } from "lucide-react";
+import { Helmet } from "react-helmet-async";
 
 const services = [
   {
@@ -113,6 +114,14 @@ const services = [
 export function Services() {
   return (
     <section id="services" className="py-24 lg:py-32 bg-background">
+      <Helmet>
+        <title>Cybersecurity Services | VAPT, Cloud, IAM & Compliance | ThreatZen</title>
+        <meta
+          name="description"
+          content="Explore ThreatZen's cybersecurity services — VAPT, web, mobile, API, cloud security, IAM, DPDP advisory, SEBI CSCRF & compliance audits across India."
+        />
+        <link rel="canonical" href="https://www.threatzen.in/services" />
+      </Helmet>
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="max-w-2xl">
           <p className="text-sm font-semibold tracking-widest uppercase text-brand">

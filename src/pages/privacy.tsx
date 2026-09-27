@@ -1,7 +1,17 @@
+import { Helmet } from "react-helmet-async";
 
 const PrivacyPolicy = () => {
   return (
     <div className="min-h-screen bg-background">
+      <Helmet>
+        <title>Privacy Policy | ThreatZen</title>
+        <meta
+          name="description"
+          content="Learn how ThreatZen collects, uses, and protects your personal data. GDPR, CCPA & LGPD compliant. Enterprise-grade security and full privacy rights explained."
+        />
+        <link rel="canonical" href="https://www.threatzen.in/privacy-policy" />
+        <meta name="robots" content="noindex, follow" />
+      </Helmet>
       <main className="pt-32 pb-24">
         <article className="mx-auto max-w-4xl px-4 sm:px-6 prose prose-slate prose-lg">
           <h1 className="text-4xl font-bold tracking-tight">Privacy Policy</h1>
@@ -317,7 +327,7 @@ const PrivacyPolicy = () => {
           </div>
           <p className="mt-4">
             To exercise your rights, email{" "}
-            <strong>privacy@threatzen.com</strong> with "Privacy Request" in the
+            <strong>contact@threatzen.in</strong> with "Privacy Request" in the
             subject line. We respond within <strong>30 days</strong> (GDPR
             requires 1 month). Identity verification may be required.
           </p>
@@ -389,7 +399,6 @@ const PrivacyPolicy = () => {
           </p>
         </article>
       </main>
-      
     </div>
   );
 };
