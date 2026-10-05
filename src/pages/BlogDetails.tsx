@@ -8,6 +8,8 @@ import ShareButtons from '../components/BlogDetailsPage/ShareButtons';
 import RelatedPosts from '../components/BlogDetailsPage/RelatedPosts';
 import MostPopular from '../components/BlogDetailsPage/MostPopular';
 import { blogApi, type Blog } from '../lib/blogApi';
+import { Helmet } from 'react-helmet-async';
+import { blogSchemas } from '../data/blogSchemas';
 
 const BlogDetails: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -15,6 +17,8 @@ const BlogDetails: React.FC = () => {
   const [blog, setBlog] = useState<Blog | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+
+  const schema = slug ? blogSchemas[slug] : null;
 
   /* ===== Fetch by slug ===== */
   useEffect(() => {
@@ -114,6 +118,20 @@ const BlogDetails: React.FC = () => {
   /* ===== Render ===== */
   return (
     <div className="min-h-screen bg-background">
+     <Helmet>
+        {/* Dynamic canonical based on current slug */}
+        <link
+          rel="canonical"
+          href={`https://www.threatzen.in/blog/${slug}`}
+        />
+
+        {/* Only render schema if one exists for this slug */}
+        {schema && (
+          <script type="application/ld+json">
+            {JSON.stringify(schema)}
+          </script>
+        )}
+      </Helmet>
       <ArticleHero blog={blog} />
 
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
@@ -157,29 +175,29 @@ const BlogDetailsSkeleton: React.FC = () => (
         <div className="max-w-4xl mx-auto space-y-6">
           {/* Breadcrumb */}
           <div className="flex items-center gap-2">
-            <div className="h-3 bg-[var(--surface)] rounded w-12" />
-            <div className="h-3 bg-[var(--surface)] rounded w-8" />
-            <div className="h-3 bg-[var(--surface)] rounded w-24" />
+            <div className="h-3 bg-surface rounded w-12" />
+            <div className="h-3 bg-surface rounded w-8" />
+            <div className="h-3 bg-surface rounded w-24" />
           </div>
 
           {/* Category pill */}
-          <div className="h-6 bg-[var(--surface)] rounded-full w-40" />
+          <div className="h-6 bg-surface rounded-full w-40" />
 
           {/* Title */}
           <div className="space-y-3">
-            <div className="h-9 bg-[var(--surface)] rounded w-full" />
-            <div className="h-9 bg-[var(--surface)] rounded w-4/5" />
+            <div className="h-9 bg-surface rounded w-full" />
+            <div className="h-9 bg-surface rounded w-4/5" />
           </div>
 
           {/* Subtitle */}
           <div className="space-y-2 pt-2">
-            <div className="h-4 bg-[var(--surface)] rounded w-full" />
-            <div className="h-4 bg-[var(--surface)] rounded w-3/4" />
+            <div className="h-4 bg-surface rounded w-full" />
+            <div className="h-4 bg-surface rounded w-3/4" />
           </div>
         </div>
 
         {/* Feature image skeleton */}
-        <div className="mt-8 aspect-[16/9] bg-[var(--surface)] rounded-3xl" />
+        <div className="mt-8 aspect-video bg-surface rounded-3xl" />
       </div>
     </div>
 
@@ -190,14 +208,14 @@ const BlogDetailsSkeleton: React.FC = () => (
           {Array.from({ length: 10 }).map((_, i) => (
             <div
               key={i}
-              className="h-4 bg-[var(--surface)] rounded"
+              className="h-4 bg-surface rounded"
               style={{ width: `${60 + ((i * 13) % 40)}%` }}
             />
           ))}
         </div>
         <div className="lg:col-span-4 space-y-6">
-          <div className="h-64 bg-[var(--surface)] rounded-2xl" />
-          <div className="h-40 bg-[var(--surface)] rounded-2xl" />
+          <div className="h-64 bg-surface rounded-2xl" />
+          <div className="h-40 bg-surface rounded-2xl" />
         </div>
       </div>
     </div>

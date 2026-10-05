@@ -74,6 +74,15 @@ const MainLayout = () => {
         <script type="application/ld+json">
           {JSON.stringify(breadcrumbSchema)}
         </script>
+
+
+        {/* Open Graph Defaults */}
+        <meta property="og:title" content="ThreatZen™ | VAPT, Compliance & Managed Security India" />
+        <meta property="og:site_name" content="ThreatZen™ — Next-Gen Cyber Resilience" />
+        <meta property="og:url" content="https://www.threatzen.in/" />
+        <meta property="og:description" content="ThreatZen delivers VAPT, ISO 27001 & SOC 2 compliance, and managed security for startups and enterprises across India. Book a free risk consultation." />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="https://www.threatzen.in/assets/favicon-DkWsy0RU.png" />
       </Helmet>
 
       <ScrollToTop />
