@@ -118,11 +118,11 @@ export function Contact() {
           <div className="grid sm:grid-cols-2 gap-4">
             <Field label="Name" name="name" required />
 
-            <Field label="Company" name="company" />
+            <Field label="Company" name="company" required />
 
             <Field label="Email" name="email" type="email" required />
 
-            <Field label="Phone" name="phone" />
+            <Field label="Phone" name="phone" required />
           </div>
 
           <div className="mt-4">
