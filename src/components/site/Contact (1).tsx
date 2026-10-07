@@ -20,10 +20,10 @@ export function Contact() {
 
     try {
       await emailjs.sendForm(
-        "service_tfqh8ew",
-        "template_9t2ruug",
+        "service_hnjg75w",
+        "template_0qgh71k",
         formRef.current,
-        "UuFXPNlRPwWZmUjEA",
+        "v8rDwrcTdw0v49sZD",
       );
 
       toast.success("Thanks for your interest. We will contact you shortly!", {
