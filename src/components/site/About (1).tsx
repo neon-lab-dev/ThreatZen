@@ -77,6 +77,17 @@ export function About() {
               combining deep domain expertise with practical, business-aligned
               solutions.
             </p>
+            <p className="mt-6 text-base font-medium text-muted-foreground">
+              Founded by{" "}
+              <a
+                href="https://www.linkedin.com/in/ayushi-jaiswal-7340841a8"
+                target="_blank"
+                className="text-brand font-semibold hover:underline"
+              >
+                Ayushi Jaiswal
+              </a>
+              , Founder &amp; CEO
+            </p>
           </motion.div>
 
           {/* Stats Grid - Social Proof */}

@@ -17,6 +17,7 @@ import ComplianceServices from "../pages/ComplianceServices";
 import SecurityServices from "../pages/SecurityServices";
 import DashboardLayout from "../layouts/DashboardLayout/DashboardLayout";
 import BlogManagement from "../pages/AdminDashboardPages/BlogManagement";
+import Career from "../pages/Career";
 
 export const router = createBrowserRouter([
   {
@@ -39,6 +40,10 @@ export const router = createBrowserRouter([
       {
         path: "/contact",
         element: <Contact />,
+      },
+      {
+        path: "/career",
+        element: <Career />,
       },
       {
         path: "/case-study",

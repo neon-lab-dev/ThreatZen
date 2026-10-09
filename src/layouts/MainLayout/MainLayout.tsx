@@ -3,6 +3,7 @@ import { Helmet } from "react-helmet-async";
 import { Header } from "../../components/site/Header";
 import { Footer } from "../../components/site/Footer";
 import ScrollToTop from "../../components/ScrollToTop/ScrollToTop";
+import CookieConsent from "../../components/CookieConsent/CookieConsent";
 
 // Organization Schema (Global)
 const organizationSchema = {
@@ -84,6 +85,7 @@ const MainLayout = () => {
         <meta property="og:type" content="website" />
         <meta property="og:image" content="https://www.threatzen.in/assets/favicon-DkWsy0RU.png" />
       </Helmet>
+      <CookieConsent />
 
       <ScrollToTop />
       <Header />

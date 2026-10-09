@@ -93,9 +93,9 @@ const CTASection: React.FC = () => {
 
             {/* Heading */}
             <h2 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold leading-[1.08] tracking-tight mb-6">
-              <span className="text-white">From Code To </span>
+              <span className="text-white">From Threats To </span>
               <span className="relative inline-block">
-                <span className="text-brand relative z-10">Compliance</span>
+                <span className="text-brand relative z-10">Resilience</span>
                 {/* Animated underline */}
                 <motion.span
                   initial={{ scaleX: 0 }}
@@ -110,10 +110,7 @@ const CTASection: React.FC = () => {
                 {/* Glow behind word */}
                 <span className="absolute inset-0 blur-2xl bg-brand opacity-25 -z-0" />
               </span>
-              <span className="text-white">
-                {" "}
-                — Where Innovation Meets Security.
-              </span>
+              <span className="text-white"> — Securing What Matters Most.</span>
             </h2>
 
             {/* Subtext */}

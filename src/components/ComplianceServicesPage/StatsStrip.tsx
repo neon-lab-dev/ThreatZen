@@ -1,7 +1,6 @@
-// components/ComplianceServicesPage/StatsStrip.tsx
 import React, { useEffect, useRef, useState } from 'react';
 import { motion, useInView } from 'framer-motion';
-import { Award, Building2, Users, Briefcase } from 'lucide-react';
+import { Award, Building2, ShieldCheck, Activity } from 'lucide-react';
 
 interface Stat {
   icon: React.ElementType;
@@ -14,31 +13,31 @@ interface Stat {
 const stats: Stat[] = [
   {
     icon: Award,
-    value: 2,
+    value: 1,
     suffix: '+',
     label: 'Years in Business',
     hint: 'Building trust since day one',
   },
   {
     icon: Building2,
-    value: 20,
+    value: 5,
     suffix: '+',
     label: 'Industries Served',
     hint: 'From BFSI to healthcare',
   },
   {
-    icon: Users,
-    value: 150,
+    icon: ShieldCheck,
+    value: 230,
     suffix: '+',
-    label: 'Organizations Supported',
-    hint: 'Across India, US, UK, EU',
+    label: 'Vulnerabilities Remediated',
+    hint: 'Critical & high severity fixed',
   },
   {
-    icon: Briefcase,
-    value: 75,
-    suffix: '+',
-    label: 'Active Engagements',
-    hint: 'Running right now',
+    icon: Activity,
+    value: 24,
+    suffix: '/7',
+    label: 'Threat Monitoring',
+    hint: 'Continuous detection & response',
   },
 ];
 

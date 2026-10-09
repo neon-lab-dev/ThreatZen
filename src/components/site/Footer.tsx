@@ -15,6 +15,7 @@ const columns = [
       { label: "About Us", to: "/about" },
       { label: "Blogs", to: "/blogs" },
       { label: "Contact", to: "/contact" },
+      { label: "Careers", to: "/career" },
       { label: "Compliance Services", to: "/compliance-services" },
       { label: "Security Services", to: "/security-services" },
     ],

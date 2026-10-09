@@ -3,81 +3,402 @@ import React, { useRef, useState } from 'react';
 import { motion, AnimatePresence, useInView } from 'framer-motion';
 import { Check } from 'lucide-react';
 
-const frameworks = [
-  'ISO 27001',
-  'SOC2',
-  'HIPAA',
-  'GDPR',
-  'DPDP 23',
-  'DORA Automation',
-  'PCI DSS',
-  'CCPA',
-];
+/* ============================================================
+   Data — single source of truth
+   ============================================================ */
 
-interface ComplianceContent {
-  title: string;
-  about: string[];
-  strengthen: string[];
-  industries: string[];
-  geographies: string[];
+interface Section {
+  title: { normal: string; highlight: string };
+  details: string[];
 }
 
-const contentByFramework: Record<string, ComplianceContent> = {
-  'ISO 27001': {
-    title: 'ISO 27001',
-    about: [
-      'Establish a robust information security management system (ISMS) to protect sensitive data.',
-      'Implement security controls and risk management processes aligned with ISO 27001 standards.',
-      'Achieve ISO 27001 certification to demonstrate your commitment to information security.',
-      'Enhance organizational resilience and safeguard against cyber threats and data breaches.',
-    ],
-    strengthen: [
-      'Enhance data security to build greater trust and confidence among stakeholders.',
-      'Mitigate risks associated with data breaches, cyber attacks, and regulatory non-compliance.',
-      'Build trust and credibility with customers, partners, and stakeholders.',
-      'Differentiate your organization in the marketplace and gain a competitive advantage.',
-    ],
-    industries: [
-      'Banking and Finance',
-      'Legal Industries',
-      'Healthcare Industries',
-      'Education',
-      'All Industries',
-    ],
-    geographies: ['India', 'United States of America', 'United Kingdom', 'European Union', 'Other'],
-  },
-};
+interface InfoBlock {
+  title: string;
+  pointers: string[];
+}
 
-const defaultContent: ComplianceContent = {
-  title: 'Framework',
-  about: [
-    'Establish a robust governance framework tailored to your organization.',
-    'Implement controls aligned with industry best practices.',
-    'Achieve certification to demonstrate your commitment to compliance.',
-    'Enhance resilience and reduce regulatory risk.',
-  ],
-  strengthen: [
-    'Build greater trust among stakeholders.',
-    'Mitigate regulatory and security risks.',
-    'Build credibility with customers and partners.',
-    'Differentiate in the marketplace.',
-  ],
-  industries: [
-    'Banking and Finance',
-    'Legal Industries',
-    'Healthcare Industries',
-    'Education',
-    'All Industries',
-  ],
-  geographies: ['India', 'United States of America', 'United Kingdom', 'European Union', 'Other'],
-};
+interface TabContent {
+  key: string;
+  sections: Section[];
+  industriesAndGeographies: InfoBlock[];
+}
+
+const tabs: TabContent[] = [
+  {
+    key: 'ISO 27001',
+    sections: [
+      {
+        title: { normal: 'About', highlight: 'ISO 27001' },
+        details: [
+          'Establish a robust information security management system (ISMS) to protect sensitive data',
+          'Implement security controls and risk management processes aligned with ISO 27001 standards',
+          'Achieve ISO 27001 certification to demonstrate your commitment to information security',
+          'Enhance organizational resilience and safeguard against cyber threats and data breaches',
+        ],
+      },
+      {
+        title: {
+          normal: 'How We Strengthen Your',
+          highlight: 'Security & Compliance Posture?',
+        },
+        details: [
+          "Ensure the confidentiality, integrity, and availability of your organisation's information assets.",
+          'Mitigate risks associated with data breaches, cyber attacks, and regulatory non-compliance.',
+          'Build trust and credibility with customers, partners, and stakeholders.',
+          'Differentiate your organisation in the marketplace and gain a competitive advantage.',
+        ],
+      },
+    ],
+    industriesAndGeographies: [
+      {
+        title: 'Industries',
+        pointers: [
+          'Finance Industries',
+          'SaaS Industries',
+          'Healthcare Industries',
+          'B2B Industries',
+          'All Industries',
+        ],
+      },
+      {
+        title: 'Geographies',
+        pointers: [
+          'India',
+          'United States of America',
+          'United Kingdom',
+          'European Union',
+          'Global',
+        ],
+      },
+    ],
+  },
+  {
+    key: 'SOC2',
+    sections: [
+      {
+        title: { normal: 'About', highlight: 'SOC2' },
+        details: [
+          'Implement a system of controls to manage and protect sensitive data',
+          'Ensure security, availability, processing integrity, confidentiality, and privacy of information',
+          'Obtain SOC2 certification to demonstrate adherence to industry-standard practices',
+          'Reduce the risk of data breaches and maintain trust with clients and partners',
+        ],
+      },
+      {
+        title: { normal: 'Why do you need', highlight: 'us?' },
+        details: [
+          'Ensure your organization meets rigorous security and compliance standards',
+          'Build credibility and trust with clients by demonstrating control effectiveness',
+          'Mitigate risks associated with data breaches, unauthorized access, and operational failures',
+          'Maintain a competitive advantage by showcasing strong internal controls',
+        ],
+      },
+    ],
+    industriesAndGeographies: [
+      {
+        title: 'Geographies',
+        pointers: [
+          'India',
+          'United States of America',
+          'United Kingdom',
+          'European Union',
+          'Global',
+        ],
+      },
+      {
+        title: 'Industries',
+        pointers: [
+          'Finance Industries',
+          'SaaS Industries',
+          'Healthcare Industries',
+          'B2B Industries',
+          'All Industries',
+        ],
+      },
+    ],
+  },
+  {
+    key: 'HIPAA',
+    sections: [
+      {
+        title: { normal: 'About', highlight: 'HIPAA' },
+        details: [
+          'Secure protected health information (PHI) using encryption and controlled access',
+          'Establish policies and protocols to comply with HIPAA standards',
+          'Preserve patient privacy and keep sensitive health information confidential',
+          'Reduce the risk of data breaches and avoid penalties related to HIPAA violations',
+        ],
+      },
+      {
+        title: { normal: 'Why do you need', highlight: 'us?' },
+        details: [
+          'Guarantee the protection and confidentiality of patient health data',
+          'Prevent expensive fines and legal issues due to HIPAA breaches',
+          'Foster trust and reliability with patients and healthcare collaborators',
+          'Showcase your dedication to upholding rigorous data security standards',
+        ],
+      },
+    ],
+    industriesAndGeographies: [
+      {
+        title: 'Geographies',
+        pointers: [
+          'India',
+          'United States of America',
+          'United Kingdom',
+          'European Union',
+          'Global',
+        ],
+      },
+      {
+        title: 'Industries',
+        pointers: [
+          'Finance Industries',
+          'SaaS Industries',
+          'Healthcare Industries',
+          'B2B Industries',
+          'All Industries',
+        ],
+      },
+    ],
+  },
+  {
+    key: 'GDPR',
+    sections: [
+      {
+        title: { normal: 'About', highlight: 'GDPR' },
+        details: [
+          'Apply data security practices such as encryption and pseudonymization',
+          'Secure clear consent for data processing and maintain transparency in handling information',
+          'Adhere to EU data protection laws to safeguard personal privacy rights',
+          'Prevent significant penalties and harm to reputation caused by GDPR breaches',
+        ],
+      },
+      {
+        title: { normal: 'Why do you need', highlight: 'us?' },
+        details: [
+          'Safeguard personal information and privacy rights in accordance with GDPR',
+          'Strengthen data security measures to reduce the chance of breaches',
+          'Foster confidence among customers and stakeholders by showing GDPR adherence',
+          'Keep up with regulatory updates to retain a market advantage',
+        ],
+      },
+    ],
+    industriesAndGeographies: [
+      {
+        title: 'Geographies',
+        pointers: [
+          'India',
+          'United States of America',
+          'United Kingdom',
+          'European Union',
+          'Global',
+        ],
+      },
+      {
+        title: 'Industries',
+        pointers: [
+          'Finance Industries',
+          'SaaS Industries',
+          'Healthcare Industries',
+          'B2B Industries',
+          'All Industries',
+        ],
+      },
+    ],
+  },
+  {
+    key: 'DPDP’23',
+    sections: [
+      {
+        title: { normal: 'About', highlight: 'DPDP’23' },
+        details: [
+          'Adopt data security strategies to comply with Data Protection and Privacy Regulations',
+          'Protect personal information using encryption, access restrictions, and data minimization',
+          'Obtain DPDP certification to showcase your dedication to safeguarding privacy rights',
+          'Lower the chances of data breaches and avoid penalties related to DPDP violations',
+        ],
+      },
+      {
+        title: { normal: 'Why do you need', highlight: 'us?' },
+        details: [
+          'Safeguard personal information and privacy rights according to DPDP regulations',
+          'Improve data protection measures to reduce the likelihood of breaches',
+          'Earn trust from customers and stakeholders by proving DPDP compliance',
+          'Keep pace with regulatory updates to sustain a competitive advantage',
+        ],
+      },
+    ],
+    industriesAndGeographies: [
+      {
+        title: 'Geographies',
+        pointers: [
+          'India',
+          'United States of America',
+          'United Kingdom',
+          'European Union',
+          'Global',
+        ],
+      },
+      {
+        title: 'Industries',
+        pointers: [
+          'Finance Industries',
+          'SaaS Industries',
+          'Healthcare Industries',
+          'B2B Industries',
+          'All Industries',
+        ],
+      },
+    ],
+  },
+  {
+    key: 'GRC Automation',
+    sections: [
+      {
+        title: { normal: 'About', highlight: 'GRC Automation' },
+        details: [
+          'Automate governance, risk, and compliance workflows to optimize operations',
+          'Deploy GRC Automation solutions to maintain regulatory adherence and minimize manual tasks',
+          'Increase efficiency and precision in handling governance, risk, and compliance processes',
+          'Reduce risks and enhance decision-making with real-time insights from GRC Automation',
+        ],
+      },
+      {
+        title: { normal: 'Why do you need', highlight: 'us?' },
+        details: [
+          'Boost productivity and cut operational expenses through GRP process automation',
+          'Maintain uniformity and standardization in compliance activities throughout the organisation',
+          'Remain flexible and adaptive to evolving regulatory demands using GRC Automation',
+          'Utilize technology to proactively detect and manage risks within your business environment',
+        ],
+      },
+    ],
+    industriesAndGeographies: [
+      {
+        title: 'Geographies',
+        pointers: [
+          'India',
+          'United States of America',
+          'United Kingdom',
+          'European Union',
+          'Global',
+        ],
+      },
+      {
+        title: 'Industries',
+        pointers: [
+          'Finance Industries',
+          'SaaS Industries',
+          'Healthcare Industries',
+          'B2B Industries',
+          'All Industries',
+        ],
+      },
+    ],
+  },
+  {
+    key: 'PCI DSS',
+    sections: [
+      {
+        title: { normal: 'About', highlight: 'PCI DSS' },
+        details: [
+          'Protect payment card information using encryption, access restrictions, and network segmentation',
+          'Adhere to PCI DSS requirements to secure sensitive cardholder data',
+          'Obtain PCI DSS certification to show dedication to safe payment processing',
+          'Reduce the likelihood of data breaches and financial damages caused by PCI DSS violations',
+        ],
+      },
+      {
+        title: { normal: 'Why do you need', highlight: 'us?' },
+        details: [
+          'Safeguard sensitive payment card information and block unauthorized access to cardholder data',
+          'Build customer trust and credibility by guaranteeing secure payment processing',
+          'Prevent expensive fines, sanctions, and damage to reputation from PCI DSS breaches',
+          'Maintain compliance with industry standards and uphold a competitive advantage in the market',
+        ],
+      },
+    ],
+    industriesAndGeographies: [
+      {
+        title: 'Geographies',
+        pointers: [
+          'India',
+          'United States of America',
+          'United Kingdom',
+          'European Union',
+          'Global',
+        ],
+      },
+      {
+        title: 'Industries',
+        pointers: [
+          'Finance Industries',
+          'SaaS Industries',
+          'Healthcare Industries',
+          'B2B Industries',
+          'All Industries',
+        ],
+      },
+    ],
+  },
+  {
+    key: 'CCPA',
+    sections: [
+      {
+        title: { normal: 'About', highlight: 'CCPA' },
+        details: [
+          'Safeguard consumer privacy rights and foster trust with your clientele',
+          'Improve data governance and transparency in managing personal data',
+          'Prevent costly fines and legal repercussions due to CCPA breaches',
+          'Showcase your dedication to honoring consumer privacy and data protection laws',
+        ],
+      },
+      {
+        title: { normal: 'Why do you need', highlight: 'us?' },
+        details: [
+          'Adopt data privacy practices to meet California Consumer Privacy Act (CCPA) standards',
+          'Offer consumers clear visibility and control over their personal data',
+          'Maintain adherence to CCPA regulations to safeguard consumer privacy',
+          'Reduce the risk of legal penalties and fines stemming from CCPA violations',
+        ],
+      },
+    ],
+    industriesAndGeographies: [
+      {
+        title: 'Geographies',
+        pointers: [
+          'India',
+          'United States of America',
+          'United Kingdom',
+          'European Union',
+          'Global',
+        ],
+      },
+      {
+        title: 'Industries',
+        pointers: [
+          'Finance Industries',
+          'SaaS Industries',
+          'Healthcare Industries',
+          'B2B Industries',
+          'All Industries',
+        ],
+      },
+    ],
+  },
+];
+
+/* ============================================================
+   Component
+   ============================================================ */
 
 const ComplianceTabs: React.FC = () => {
-  const [active, setActive] = useState<string>('ISO 27001');
+  const [active, setActive] = useState<string>(tabs[0].key);
   const sectionRef = useRef<HTMLElement>(null);
   const inView = useInView(sectionRef, { once: true, margin: '-100px' });
 
-  const content = contentByFramework[active] ?? { ...defaultContent, title: active };
+  const activeTab = tabs.find((t) => t.key === active);
 
   return (
     <section
@@ -125,13 +446,13 @@ const ComplianceTabs: React.FC = () => {
 
               {/* Framework list */}
               <nav className="flex flex-col space-y-1">
-                {frameworks.map((f, i) => {
-                  const isActive = active === f;
+                {tabs.map((tab, i) => {
+                  const isActive = active === tab.key;
                   return (
                     <motion.button
-                      key={f}
+                      key={tab.key}
                       type="button"
-                      onClick={() => setActive(f)}
+                      onClick={() => setActive(tab.key)}
                       initial={{ opacity: 0, x: -12 }}
                       animate={inView ? { opacity: 1, x: 0 } : {}}
                       transition={{
@@ -165,7 +486,7 @@ const ComplianceTabs: React.FC = () => {
                       />
 
                       <span className="relative flex items-center justify-between gap-3">
-                        <span>{f}</span>
+                        <span>{tab.key}</span>
 
                         {/* Active dot */}
                         {isActive && (
@@ -201,7 +522,6 @@ const ComplianceTabs: React.FC = () => {
               <div className="relative rounded-3xl bg-gradient-to-br from-white/[0.06] to-white/[0.02] border border-white/10 backdrop-blur-sm shadow-[0_30px_80px_-30px_rgba(0,0,0,0.6)] overflow-hidden">
                 {/* Header strip */}
                 <div className="relative px-8 lg:px-10 pt-8 lg:pt-10 pb-6 border-b border-white/10">
-                  {/* Small accent */}
                   <div className="inline-flex items-center gap-2 mb-3">
                     <span className="w-1.5 h-1.5 rounded-full bg-brand" />
                     <span className="text-[11px] font-semibold tracking-[0.18em] uppercase text-brand">
@@ -211,14 +531,14 @@ const ComplianceTabs: React.FC = () => {
 
                   <AnimatePresence mode="wait">
                     <motion.h3
-                      key={content.title}
+                      key={activeTab?.key}
                       initial={{ opacity: 0, y: 8 }}
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: -8 }}
                       transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
                       className="text-2xl lg:text-3xl font-bold text-white tracking-tight"
                     >
-                      {content.title}
+                      {activeTab?.key}
                     </motion.h3>
                   </AnimatePresence>
                 </div>
@@ -234,64 +554,47 @@ const ComplianceTabs: React.FC = () => {
                       transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
                       className="space-y-8"
                     >
-                      {/* About */}
-                      <div>
-                        <h4 className="text-sm font-bold text-white mb-4 flex items-center gap-2">
-                          <span className="w-4 h-px bg-brand" />
-                          About {content.title}
-                        </h4>
-                        <ul className="space-y-2.5">
-                          {content.about.map((item, i) => (
-                            <BulletItem key={i} text={item} delay={i * 0.04} />
-                          ))}
-                        </ul>
-                      </div>
-
-                      {/* Strengthen */}
-                      <div>
-                        <h4 className="text-sm font-bold text-white mb-4 flex items-center gap-2">
-                          <span className="w-4 h-px bg-brand" />
-                          How We Strengthen Your Security &amp; Compliance Posture
-                        </h4>
-                        <ul className="space-y-2.5">
-                          {content.strengthen.map((item, i) => (
-                            <BulletItem key={i} text={item} delay={0.15 + i * 0.04} />
-                          ))}
-                        </ul>
-                      </div>
+                      {/* Sections */}
+                      {activeTab?.sections.map((section, i) => (
+                        <div key={i}>
+                          <h4 className="text-sm font-bold text-white mb-4 flex items-center gap-2">
+                            <span className="w-4 h-px bg-brand" />
+                            {section.title.normal}{' '}
+                            <span className="text-brand">
+                              {section.title.highlight}
+                            </span>
+                          </h4>
+                          <ul className="space-y-2.5">
+                            {section.details.map((item, j) => (
+                              <BulletItem
+                                key={j}
+                                text={item}
+                                delay={i * 0.15 + j * 0.04}
+                              />
+                            ))}
+                          </ul>
+                        </div>
+                      ))}
 
                       {/* Industries + Geographies */}
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-8 border-t border-white/10">
-                        <div>
-                          <h4 className="text-sm font-bold text-white mb-3 flex items-center gap-2">
-                            <span className="w-4 h-px bg-brand" />
-                            Industries
-                          </h4>
-                          <ul className="space-y-2">
-                            {content.industries.map((item, i) => (
-                              <PillItem
-                                key={item}
-                                text={item}
-                                delay={0.3 + i * 0.03}
-                              />
-                            ))}
-                          </ul>
-                        </div>
-                        <div>
-                          <h4 className="text-sm font-bold text-white mb-3 flex items-center gap-2">
-                            <span className="w-4 h-px bg-brand" />
-                            Geographies
-                          </h4>
-                          <ul className="space-y-2">
-                            {content.geographies.map((item, i) => (
-                              <PillItem
-                                key={item}
-                                text={item}
-                                delay={0.35 + i * 0.03}
-                              />
-                            ))}
-                          </ul>
-                        </div>
+                        {activeTab?.industriesAndGeographies.map((info, i) => (
+                          <div key={i}>
+                            <h4 className="text-sm font-bold text-white mb-3 flex items-center gap-2">
+                              <span className="w-4 h-px bg-brand" />
+                              {info.title}
+                            </h4>
+                            <ul className="space-y-2">
+                              {info.pointers.map((pointer, j) => (
+                                <PillItem
+                                  key={pointer}
+                                  text={pointer}
+                                  delay={0.3 + i * 0.05 + j * 0.03}
+                                />
+                              ))}
+                            </ul>
+                          </div>
+                        ))}
                       </div>
                     </motion.div>
                   </AnimatePresence>

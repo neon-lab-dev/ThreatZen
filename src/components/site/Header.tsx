@@ -77,7 +77,7 @@ export function Header() {
             </div>
             <div className="flex flex-col leading-tight">
               <span className={`font-display font-semibold text-sm ${getTextColor()}`}>
-                ThreatZen<sup className="text-[0.55em] ml-0.5 font-semibold">™</sup>
+                Threat<span className="text-brand">Z</span>en<sup className="text-[0.55em] ml-0.5 font-semibold">™</sup>
               </span>
               <span
                 className={`text-[10px] font-semibold tracking-[0.18em] uppercase ${getTextColor()}`}
