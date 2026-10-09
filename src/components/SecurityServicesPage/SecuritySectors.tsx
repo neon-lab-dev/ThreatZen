@@ -86,7 +86,7 @@ const SecuritySectors: React.FC = () => {
 
           {/* Heading */}
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-[1.12] tracking-tight">
-            <span className="text-white">Compliance Solutions</span>
+            <span className="text-white">Managed Security Solutions</span>
             <br />
             <span className="text-white">Across </span>
             <span className="relative inline-block">

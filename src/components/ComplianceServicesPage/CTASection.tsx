@@ -115,8 +115,7 @@ const CTASection: React.FC = () => {
 
             {/* Subtext */}
             <p className="text-base lg:text-lg text-white/60 leading-relaxed max-w-xl mb-8">
-              Let our compliance experts map your regulatory landscape and build
-              a framework aligned with your business — not a template.
+              Strengthen your cybersecurity, simplify compliance, and build resilience with tailored security solutions designed around your business.
             </p>
 
             {/* CTAs */}
