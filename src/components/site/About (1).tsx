@@ -189,8 +189,8 @@ export function About() {
         {/* Bio */}
         <p className="text-sm sm:text-base text-white/70 leading-relaxed max-w-xl mx-auto md:mx-0">
           Ayushi holds an MBA from Swami Vivekananda Subharti University, Meerut,
-          and brings prior customer support experience from Groww. At ThreatZen,
-          she is focused on building a customer-centric cybersecurity and
+          and brings prior client support experience from Groww. At ThreatZen,
+          she is focused on building a client-centric cybersecurity and
           compliance company.
         </p>
 
