@@ -17,7 +17,7 @@ const columns = [
       { label: "Contact", to: "/contact" },
       { label: "Careers", to: "/career" },
       { label: "Compliance Services", to: "/compliance-services" },
-      { label: "Security Services", to: "/security-services" },
+      { label: "Cybersecurity Services", to: "/security-services" },
     ],
   },
   {

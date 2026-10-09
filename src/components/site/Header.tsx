@@ -16,7 +16,7 @@ const nav = [
     // dropdown items
     children: [
       { to: "/compliance-services", label: "Compliance Services" },
-      { to: "/security-services", label: "Security Services" },
+      { to: "/security-services", label: "Cybersecurity Services" },
     ],
   },
   { to: "/industries", label: "Industries" },
