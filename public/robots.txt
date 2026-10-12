@@ -11,7 +11,3 @@ Disallow: /dashboard/
 Disallow: /panel/
 Disallow: /wp-admin/
 Disallow: /wp-login.php
-Disallow: /services
-
-# XML Sitemap
-Sitemap: https://www.threatzen.in/Sitemap.xml
