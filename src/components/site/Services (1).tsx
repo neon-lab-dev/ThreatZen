@@ -120,7 +120,7 @@ export function Services() {
           name="description"
           content="Explore ThreatZen's cybersecurity services — VAPT, web, mobile, API, cloud security, IAM, DPDP advisory, SEBI CSCRF & compliance audits across India."
         />
-        <link rel="canonical" href="https://www.threatzen.in/services" />
+        <link rel="canonical" href="https://www.threatzen.in/services"/>
       </Helmet>
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="max-w-2xl">
