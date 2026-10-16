@@ -62,7 +62,7 @@ export const router = createBrowserRouter([
         element: <Solutions />,
       },
       {
-        path: "/terms",
+        path: "/terms-and-conditions",
         element: <TermsAndConditions />,
       },
       {
