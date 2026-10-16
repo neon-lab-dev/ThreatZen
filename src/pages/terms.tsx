@@ -9,7 +9,7 @@ const TermsAndConditions = () => {
           name="description"
           content="Read ThreatZen's Terms & Conditions governing the use of our cybersecurity services, website, and platforms. Effective January 1, 2026."
         />
-        <link rel="canonical" href="https://www.threatzen.in/terms-and-conditions" />
+        <link rel="canonical" href="https://www.threatzen.in/terms" />
         <meta name="robots" content="noindex, follow" />
       </Helmet>
       <main className="pt-32 pb-24">
