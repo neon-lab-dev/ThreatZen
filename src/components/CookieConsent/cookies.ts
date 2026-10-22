@@ -74,7 +74,7 @@ export const COOKIE_BANNER_COPY = {
   acceptAll: 'Accept All',
   declineAll: 'Decline All',
   managePreferences: 'Manage Preferences',
-  privacyLink: '/privacy-policy',
+  privacyLink: '/privacy',
   privacyLinkText: 'Privacy Policy',
   cookieLink: '/cookie-policy',
   cookieLinkText: 'Cookie Policy',

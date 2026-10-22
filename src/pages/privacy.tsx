@@ -9,7 +9,7 @@ const PrivacyPolicy = () => {
           name="description"
           content="Learn how ThreatZen collects, uses, and protects your personal data. GDPR, CCPA & LGPD compliant. Enterprise-grade security and full privacy rights explained."
         />
-        <link rel="canonical" href="https://www.threatzen.in/privacy-policy" />
+        <link rel="canonical" href="https://www.threatzen.in/privacy" />
       </Helmet>
       <main className="pt-32 pb-24">
         <article className="mx-auto max-w-4xl px-4 sm:px-6 prose prose-slate prose-lg">

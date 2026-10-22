@@ -157,10 +157,10 @@ export function Footer() {
         <div className="mt-14 pt-6 border-t border-white/10 flex flex-col md:flex-row md:items-center md:justify-between gap-4 text-xs text-white/55">
           <p>©️ 2026 Threat<span className="text-brand">Z</span>en. Next-Gen Cyber Resilience. (A wholly owned subsidiary of <span className="text-brand">MitraTech Ventures.</span>)</p>
           <div className="flex gap-6">
-            <Link to="/privacy-policy" className="hover:text-white">
+            <Link to="/privacy" className="hover:text-white">
               Privacy Policy
             </Link>
-            <Link to="/terms-and-conditions" className="hover:text-white">
+            <Link to="/terms" className="hover:text-white">
               Terms & Conditions
             </Link>
           </div>
