@@ -5,27 +5,7 @@ import { Footer } from "../../components/site/Footer";
 import ScrollToTop from "../../components/ScrollToTop/ScrollToTop";
 import CookieConsent from "../../components/CookieConsent/CookieConsent";
 
-// Organization Schema (Global)
-const organizationSchema = {
-  "@context": "https://schema.org",
-  "@type": "Corporation",
-  name: "ThreatZen™ — Next-Gen Cyber Resilience",
-  alternateName: "ThreatZen",
-  url: "https://www.threatzen.in/",
-  logo: "https://www.threatzen.in/assets/threatzen-logo-BGKPAU1r.png",
-  contactPoint: {
-    "@type": "ContactPoint",
-    telephone: "+91-7479697250",
-    contactType: "customer service",
-    contactOption: "TollFree",
-    areaServed: "IN",
-    availableLanguage: "en",
-  },
-  sameAs: [
-    "https://www.instagram.com/threatzen/",
-    "https://in.linkedin.com/company/threatzen",
-  ],
-};
+
 
 // Breadcrumbs Schema (Global)
 const breadcrumbSchema = {
@@ -75,9 +55,7 @@ const MainLayout = () => {
   return (
     <div className="bg-background-5">
       <Helmet>
-        <script type="application/ld+json">
-          {JSON.stringify(organizationSchema)}
-        </script>
+       
         <script type="application/ld+json">
           {JSON.stringify(breadcrumbSchema)}
         </script>

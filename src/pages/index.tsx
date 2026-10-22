@@ -9,6 +9,28 @@ import { Partners } from "../components/site/Partners (1)";
 import { Services } from "../components/site/Services (1)";
 import { Stats } from "../components/site/Stats";
 
+// Organization Schema (Global)
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "Corporation",
+  name: "ThreatZen™ — Next-Gen Cyber Resilience",
+  alternateName: "ThreatZen",
+  url: "https://www.threatzen.in/",
+  logo: "https://www.threatzen.in/assets/threatzen-logo-BGKPAU1r.png",
+  contactPoint: {
+    "@type": "ContactPoint",
+    telephone: "+91-7479697250",
+    contactType: "customer service",
+    contactOption: "TollFree",
+    areaServed: "IN",
+    availableLanguage: "en",
+  },
+  sameAs: [
+    "https://www.instagram.com/threatzen/",
+    "https://in.linkedin.com/company/threatzen",
+  ],
+};
+
 // FAQ Schema
 const faqSchema = {
   "@context": "https://schema.org",
@@ -77,6 +99,9 @@ const Home = () => {
   return (
     <div className="min-h-screen bg-background">
       <Helmet>
+        <script type="application/ld+json">
+          {JSON.stringify(organizationSchema)}
+        </script>
         <title>ThreatZen™ | VAPT, Compliance & Managed Security India</title>
         <meta
           name="description"
