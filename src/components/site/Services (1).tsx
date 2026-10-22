@@ -115,7 +115,6 @@ export function Services() {
   return (
     <section id="services" className="py-24 lg:py-32 bg-background">
       <Helmet>
-        <title>Cybersecurity Services | VAPT, Cloud, IAM & Compliance | ThreatZen</title>
         <meta
           name="description"
           content="Explore ThreatZen's cybersecurity services — VAPT, web, mobile, API, cloud security, IAM, DPDP advisory, SEBI CSCRF & compliance audits across India."
