@@ -1,65 +1,123 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
-
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-       <loc>https://www.threatzen.in/</loc>
-       <lastmod>2026-10-11T02:21:09+00:00</lastmod>
-       <priority>1.0000</priority>
+    <loc>https://www.threatzen.in/</loc>
+    <lastmod>2026-10-19</lastmod>
+    <priority>1.0</priority>
   </url>
   <url>
-       <loc>https://www.threatzen.in/services</loc>
-       <lastmod>2026-10-11T02:21:09+00:00</lastmod>
-       <priority>0.6400</priority>
+    <loc>https://www.threatzen.in/privacy-policy</loc>
+    <lastmod>2026-10-19</lastmod>
+    <priority>0.9</priority>
   </url>
   <url>
-       <loc>https://www.threatzen.in/privacy-policy</loc>
-       <lastmod>2026-10-11T02:21:09+00:00</lastmod>
-       <priority>0.6400</priority>
+    <loc>https://www.threatzen.in/cookie-policy</loc>
+    <lastmod>2026-10-19</lastmod>
+    <priority>0.9</priority>
   </url>
   <url>
-       <loc>https://www.threatzen.in/cookie-policy</loc>
-       <lastmod>2026-10-11T02:21:09+00:00</lastmod>
-       <priority>0.6400</priority>
+    <loc>https://www.threatzen.in/about</loc>
+    <lastmod>2026-10-19</lastmod>
+    <priority>0.9</priority>
   </url>
   <url>
-       <loc>https://www.threatzen.in/about</loc>
-       <lastmod>2026-10-11T02:21:09+00:00</lastmod>
-       <priority>0.6400</priority>
+    <loc>https://www.threatzen.in/compliance-services</loc>
+    <lastmod>2026-10-19</lastmod>
+    <priority>0.9</priority>
   </url>
   <url>
-       <loc>https://www.threatzen.in/compliance-services</loc>
-       <lastmod>2026-10-11T02:21:09+00:00</lastmod>
-       <priority>0.6400</priority>
+    <loc>https://www.threatzen.in/security-services</loc>
+    <lastmod>2026-10-19</lastmod>
+    <priority>0.9</priority>
   </url>
   <url>
-       <loc>https://www.threatzen.in/security-services</loc>
-       <lastmod>2026-10-11T02:21:09+00:00</lastmod>
-       <priority>0.6400</priority>
+    <loc>https://www.threatzen.in/industries</loc>
+    <lastmod>2026-10-19</lastmod>
+    <priority>0.9</priority>
   </url>
   <url>
-       <loc>https://www.threatzen.in/industries</loc>
-       <lastmod>2026-10-11T02:21:09+00:00</lastmod>
-       <priority>0.6400</priority>
+    <loc>https://www.threatzen.in/blogs</loc>
+    <lastmod>2026-10-19</lastmod>
+    <priority>0.9</priority>
   </url>
   <url>
-       <loc>https://www.threatzen.in/blogs</loc>
-       <lastmod>2026-10-11T02:21:09+00:00</lastmod>
-       <priority>0.6400</priority>
+    <loc>https://www.threatzen.in/contact</loc>
+    <lastmod>2026-10-19</lastmod>
+    <priority>0.9</priority>
   </url>
   <url>
-       <loc>https://www.threatzen.in/contact</loc>
-       <lastmod>2026-10-11T02:21:09+00:00</lastmod>
-       <priority>0.6400</priority>
+    <loc>https://www.threatzen.in/services</loc>
+    <lastmod>2026-10-19</lastmod>
+    <priority>0.9</priority>
   </url>
   <url>
-       <loc>https://www.threatzen.in/career</loc>
-       <lastmod>2026-10-11T02:21:09+00:00</lastmod>
-       <priority>0.6400</priority>
+    <loc>https://www.threatzen.in/career</loc>
+    <lastmod>2026-10-19</lastmod>
+    <priority>0.9</priority>
   </url>
   <url>
-       <loc>https://www.threatzen.in/terms-and-conditions</loc>
-       <lastmod>2026-10-11T02:21:09+00:00</lastmod>
-       <priority>0.6400</priority>
+    <loc>https://www.threatzen.in/terms-and-conditions</loc>
+    <lastmod>2026-10-19</lastmod>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.threatzen.in/blog/ransomware-protection-2026-latest-attacks</loc>
+    <lastmod>2026-10-19</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.threatzen.in/blog/soc-2-compliance-india-a-founders-guide</loc>
+    <lastmod>2026-10-19</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.threatzen.in/blog/xdr-solution-provider-for-enterprises-2026</loc>
+    <lastmod>2026-10-19</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.threatzen.in/blog/edr-solution-provider-india-how-to-choose</loc>
+    <lastmod>2026-10-19</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.threatzen.in/blog/vapt-audit-services-india-process-and-timeline</loc>
+    <lastmod>2026-10-19</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.threatzen.in/blog/best-antivirus-software-for-windows-enterprise-2026</loc>
+    <lastmod>2026-10-19</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.threatzen.in/blog/dpdp-act-compliance-consultant-guide</loc>
+    <lastmod>2026-10-19</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.threatzen.in/blog/pci-dss-compliance-services-india-fintech-ecommerce</loc>
+    <lastmod>2026-10-19</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.threatzen.in/blog/iso-27001-certification-india-guide</loc>
+    <lastmod>2026-10-19</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.threatzen.in/blog/email-security-solutions-for-business-2026</loc>
+    <lastmod>2026-10-19</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.threatzen.in/blog/hipaa-compliance-services-india-healthtech-bpo</loc>
+    <lastmod>2026-10-19</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.threatzen.in/blog/enterprise-firewall-security-solutions-2026</loc>
+    <lastmod>2026-10-19</lastmod>
+    <priority>0.8</priority>
   </url>
 </urlset>
