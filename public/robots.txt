@@ -1,13 +1,12 @@
 # ThreatZen™ robots.txt
 # Allow search-engine crawlers to crawl the public website.
 User-agent: *
-Allow: /sitemap.xml
+Allow: /
 
-# Block common website administration/private areas from crawlers.
-# robots.txt is NOT a security mechanism.
 Disallow: /admin/
 Disallow: /login/
 Disallow: /dashboard/
 Disallow: /panel/
-Disallow: /wp-admin/
-Disallow: /wp-login.php
+Disallow: /solutions/
+Disallow: /partners/
+Sitemap: https://www.threatzen.in/sitemap.xml
