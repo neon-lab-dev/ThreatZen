@@ -1,5 +1,3 @@
-// src/data/blogSchemas.ts
-
 export const blogSchemas: Record<string, object> = {
   "soc-2-compliance-india-a-founders-guide": {
     "@context": "https://schema.org",
