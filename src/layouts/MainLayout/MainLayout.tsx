@@ -1,11 +1,11 @@
-import { Outlet } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom"; // Added useLocation
 import { Helmet } from "react-helmet-async";
 import { Header } from "../../components/site/Header";
 import { Footer } from "../../components/site/Footer";
 import ScrollToTop from "../../components/ScrollToTop/ScrollToTop";
 import CookieConsent from "../../components/CookieConsent/CookieConsent";
-
-
+import { useEffect } from "react";
+import ReactGA from "react-ga4";
 
 // Breadcrumbs Schema (Global)
 const breadcrumbSchema = {
@@ -52,10 +52,27 @@ const breadcrumbSchema = {
 };
 
 const MainLayout = () => {
+  const location = useLocation(); // Get current route
+
+  // 1. Initialize Google Tag (Runs once)
+  useEffect(() => {
+    ReactGA.initialize("AW-18512292065", {
+      gtagOptions: { send_page_view: false } // We will handle pageviews manually below
+    });
+  }, []);
+
+  // 2. Track Page Views on Route Change (Runs every time URL changes)
+  useEffect(() => {
+    ReactGA.send({ 
+      hitType: "pageview", 
+      page: location.pathname + location.search,
+      title: document.title
+    });
+  }, [location]); // Dependency array triggers when location changes
+
   return (
     <div className="bg-background-5">
       <Helmet>
-       
         <script type="application/ld+json">
           {JSON.stringify(breadcrumbSchema)}
         </script>
