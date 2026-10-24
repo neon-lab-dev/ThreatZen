@@ -102,7 +102,7 @@ const Home = () => {
         <script type="application/ld+json">
           {JSON.stringify(organizationSchema)}
         </script>
-        <title>Cybersecurity Services India | VAPT & Compliance | ThreatZen</title>
+        <title>ThreatZen | Cybersecurity Services India | VAPT & Compliance</title>
         <meta
           name="description"
           content="ThreatZen delivers VAPT, security assessment and compliance services for ISO 27001, SOC 2, PCI DSS and DPDP. Talk to our experts."
