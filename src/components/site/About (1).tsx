@@ -10,7 +10,7 @@ import {
 } from "lucide-react";
 import { Helmet } from "react-helmet-async";
 import { FaLinkedin } from "react-icons/fa";
-import ayushiImg from "../../assets/Ayushi_Jaiswal.jpg";
+import ayushiImg from "../../assets/Ayushi_Jaiswal.jpeg";
 
 const stats = [
   { value: "98%", label: "Client Retention Rate", icon: Users },

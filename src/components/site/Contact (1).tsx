@@ -116,13 +116,13 @@ export function Contact() {
           className="rounded-3xl bg-card border border-border p-8 shadow-elegant"
         >
           <div className="grid sm:grid-cols-2 gap-4">
-            <Field label="Name" name="name" required />
+            <Field label="Name" name="name" type="text" required />
 
-            <Field label="Company" name="company" required />
+            <Field label="Company" name="company" type="text" required />
 
             <Field label="Email" name="email" type="email" required />
 
-            <Field label="Phone" name="phone" required />
+            <Field label="Phone" name="phone" type="tel" required />
           </div>
 
           <div className="mt-4">
