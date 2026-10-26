@@ -1,4 +1,11 @@
 {
   "buildCommand": "npm install --legacy-peer-deps && npm run build",
+  "redirects": [
+    {
+      "source": "/privacy-policy",
+      "destination": "/privacy",
+      "permanent": true
+    }
+  ],
   "rewrites": [{ "source": "/(.*)", "destination": "/" }]
 }
