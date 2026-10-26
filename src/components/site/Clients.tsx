@@ -57,6 +57,7 @@ export function Clients() {
             <div
               key={idx}
               className="border-b border-border/60 pb-20 last:border-0 last:pb-0"
+              data-nosnippet
             >
               {/* Client Name & Number */}
               <div className="flex items-baseline gap-3 mb-6">
