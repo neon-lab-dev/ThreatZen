@@ -36,7 +36,7 @@ const clients = [
 
 export function Clients() {
   return (
-    <section className="py-24 bg-background">
+    <section data-nosnippet className="py-24 bg-background">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="max-w-3xl mx-auto text-center mb-20">
