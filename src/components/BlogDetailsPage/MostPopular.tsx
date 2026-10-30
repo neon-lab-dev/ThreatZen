@@ -1,5 +1,4 @@
 import React, { useEffect, useMemo, useState } from 'react';
-import { Link } from 'react-router-dom';
 import BlogCard from '../BlogPage/BlogCard';
 import { blogApi, type Blog } from '../../lib/blogApi';
 
@@ -113,13 +112,12 @@ const MostPopular: React.FC<MostPopularProps> = ({tags, slug, limit = 4 }) => {
         </h3>
         <div className="flex flex-wrap gap-2">
           {tags?.map((tag:string) => (
-            <Link
+            <div
               key={tag}
-              to={`/blogs?tag=${encodeURIComponent(tag)}`}
               className="px-3 py-1.5 rounded-lg bg-[var(--surface)] text-xs font-medium text-muted-foreground hover:bg-navy hover:text-white transition-all duration-200"
             >
               {tag}
-            </Link>
+            </div>
           ))}
         </div>
       </div>
